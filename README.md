@@ -1,4 +1,4 @@
-# wa-post-deployment-ft-tests
+# sptribs-wa-post-deployment-ft-tests
 
 [![Build Status](https://travis-ci.org/hmcts/wa-post-deployment-ft-tests.svg?branch=master)](https://travis-ci.org/hmcts/wa-post-deployment-ft-tests)
 
