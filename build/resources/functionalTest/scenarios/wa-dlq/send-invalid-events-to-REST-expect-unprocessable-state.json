@@ -1,0 +1,65 @@
+{
+  "description": "Given invalid events sent using REST we should see message in Unprocessable state",
+  "enabled": true,
+  "jurisdiction": "WA",
+  "caseType": "WaCaseType",
+  "options": {
+    "taskRetrievalApi": "task-management-api"
+  },
+  "required": {
+    "credentials": {
+      "key": "WaSystemUser"
+    },
+    "ccd": [
+      {
+        "eventId": "CREATE",
+        "state": "TODO",
+        "caseData": {
+          "template": "minimal-appeal-started.json"
+        }
+      }
+    ]
+  },
+  "tests": [
+    {
+      "request": {
+        "credentials": {
+          "key": "WaCaseOfficer",
+          "granularPermission": true
+        },
+        "input": {
+          "eventMessages": [
+            {
+              "template": "invalid-ccd-event-message.json",
+              "destination": "RestEndpoint"
+            }
+          ]
+        }
+      },
+      "expectations": [
+        {
+          "credentials": {
+            "key": "WaCaseOfficer",
+            "granularPermission": true
+          },
+          "status": 200,
+          "numberOfTasksAvailable": 0,
+          "numberOfMessagesToCheck": 1,
+          "messageData": {
+            "message": "Found 1 messages",
+            "numberOfMessagesMatchingTheQuery": 1,
+            "caseEventMessages": [
+              {
+                "CaseId": "{$GENERATED_CASE_ID}",
+                "FromDlq": false,
+                "State": "UNPROCESSABLE",
+                "DeliveryCount": 0,
+                "RetryCount": 0
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

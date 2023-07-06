@@ -1,0 +1,15 @@
+{
+  "AdditionalData": {
+    "Data": {},
+    "Definition": {}
+  },
+  "CaseId": "1686845660729879",
+  "CaseTypeId": "CriminalInjuriesCompensation",
+  "EventId": "caseworker-add-note",
+  "EventInstanceId": 7,
+  "EventTimeStamp": "2023-06-27T13:32:28.517096",
+  "JurisdictionId": "ST_CIC",
+  "NewStateId": "CaseManagement",
+  "PreviousStateId": "CaseManagement",
+  "UserId": "st-super"
+}

@@ -1,0 +1,161 @@
+{
+  "description": "create case and task for the WA jurisdiction using interval calculation",
+  "enabled": true,
+  "jurisdiction": "WA",
+  "caseType": "WaCaseType",
+  "options": {
+    "taskRetrievalApi": "task-management-api"
+  },
+  "required": {
+    "credentials": {
+      "key": "WaSystemUser"
+    },
+    "ccd": [
+      {
+        "eventId": "endToEndTask",
+        "state": "TODO",
+        "caseData": {
+          "template": "minimal-appeal-started.json"
+        }
+      }
+    ]
+  },
+  "tests": [
+    {
+      "request": {
+        "credentials": {
+          "key": "WaCaseOfficer",
+          "granularPermission": true
+        },
+        "input": {
+          "eventMessages": [
+            {
+              "template": "date-interval-ccd-event-message.json"
+            }
+          ]
+        }
+      },
+      "expectations": [
+        {
+          "credentials": {
+            "key": "WaCaseOfficer",
+            "granularPermission": true
+          },
+          "status": 200,
+          "numberOfTasksAvailable": 1,
+          "taskData": {
+            "template": "minimal-task-response.json",
+            "replacements": {
+              "tasks": [
+                {
+                  "test_meta_data": [
+                    {
+                      "key": "role_data_reference",
+                      "value": "first_role_data",
+                      "description": "role assignment verification object"
+                    }
+                  ],
+                  "id": "{$VERIFIER-UUID}",
+                  "case_id": "{$GENERATED_CASE_ID}",
+                  "name": "End To End Task",
+                  "type": "endToEndTask",
+                  "task_state": "unassigned",
+                  "task_system": "SELF",
+                  "security_classification": "PUBLIC",
+                  "task_title": "End To End Task",
+                  "created_date": "{$VERIFIER-ZONED_DATETIME_TODAY}",
+                  "due_date": "2022-12-08T18:00:00+0000",
+                  "location_name": "Taylor House",
+                  "location": "765324",
+                  "execution_type": "Case Management Task",
+                  "jurisdiction": "WA",
+                  "region": "1",
+                  "case_type_id": "WaCaseType",
+                  "case_category": "Protection",
+                  "case_name": "Functional PostDeployment",
+                  "auto_assigned": false,
+                  "warnings": false,
+                  "warning_list": {
+                    "values": [
+                    ]
+                  },
+                  "case_management_category": "Protection",
+                  "permissions": {
+                    "values": [
+                      "Read",
+                      "Manage",
+                      "Execute",
+                      "Cancel",
+                      "Complete",
+                      "Assign",
+                      "Unassign"
+                    ]
+                  },
+                  "next_hearing_id": "next-hearing-id",
+                  "next_hearing_date": "2022-12-07T14:00:00+0000",
+                  "priority_date": "2022-12-07T14:00:00+0000"
+                }
+              ]
+            }
+          },
+          "roleData": [
+            {
+              "key": "first_role_data",
+              "numberOfRolesAvailable": 4,
+              "roles": [
+                {
+                  "role_category": "LEGAL_OPERATIONS",
+                  "role_name": "case-manager",
+                  "permissions": [
+                    "Read",
+                    "Manage",
+                    "Execute",
+                    "Cancel",
+                    "Complete",
+                    "Assign",
+                    "Unassign"
+                  ],
+                  "authorisations": [
+                  ]
+                },
+                {
+                  "role_category": "LEGAL_OPERATIONS",
+                  "role_name": "senior-tribunal-caseworker",
+                  "permissions": [
+                    "Read",
+                    "Own"
+                  ],
+                  "authorisations": [
+                  ]
+                },
+                {
+                  "role_name": "task-supervisor",
+                  "permissions": [
+                    "Read",
+                    "Manage",
+                    "Cancel",
+                    "Complete",
+                    "Assign",
+                    "Unassign"
+                  ],
+                  "authorisations": [
+                  ]
+                },
+                {
+                  "role_category": "LEGAL_OPERATIONS",
+                  "role_name": "tribunal-caseworker",
+                  "permissions": [
+                    "Read",
+                    "Execute"
+                  ],
+                  "authorisations": [
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "tasks": [
+    {
+      "id": "{$VERIFIER-UUID}",
+      "jurisdiction": "ST_CIC",
+      "case_type_id": "StCaseType",
+      "case_id": "{$GENERATED_CASE_ID}"
+    }
+  ]
+}
