@@ -1,5 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="1" failures="0" name="uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest" skipped="0" tests="1" time="10.92" timestamp="2023-07-06 05:55:35"><testcase classname="uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest" name="Scenarios should behave as specified"><error type="java.lang.NullPointerException"/><system-err>null
-uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest.runAllScenariosFor(ScenarioRunnerTest.java:190)
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="1" failures="0" name="uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest" skipped="0" tests="1" time="14.14" timestamp="2023-07-10 03:50:58"><testcase classname="uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest" name="Scenarios should behave as specified"><error message="[403] during [GET] to [http://localhost:4452/caseworkers/st-test1/jurisdictions/ST_CIC/case-types/CriminalInjuriesCompensation/event-triggers/caseworker-create-case/token] [CoreCaseDataApi#startForCaseworker(String,String,String,String,String,String)]: []" type="feign.FeignException$Forbidden">[403] during [GET] to [http://localhost:4452/caseworkers/st-test1/jurisdictions/ST_CIC/case-types/CriminalInjuriesCompensation/event-triggers/caseworker-create-case/token] [CoreCaseDataApi#startForCaseworker(String,String,String,String,String,String)]: []</error><system-err>[403] during [GET] to [http://localhost:4452/caseworkers/st-test1/jurisdictions/ST_CIC/case-types/CriminalInjuriesCompensation/event-triggers/caseworker-create-case/token] [CoreCaseDataApi#startForCaseworker(String,String,String,String,String,String)]: []
+feign.FeignException.clientErrorStatus(FeignException.java:217)
+feign.FeignException.errorStatus(FeignException.java:194)
+feign.FeignException.errorStatus(FeignException.java:185)
+feign.AsyncResponseHandler.handleResponse(AsyncResponseHandler.java:96)
+feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:138)
+feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:89)
+uk.gov.hmcts.reform.wapostdeploymentfttests.services.CcdCaseCreator.createInitialStartEventAndSubmit(CcdCaseCreator.java:109)
+uk.gov.hmcts.reform.wapostdeploymentfttests.services.CcdCaseCreator.createCase(CcdCaseCreator.java:57)
+uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest.lambda$createBaseCcdCase$0(ScenarioRunnerTest.java:283)
+uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest.createBaseCcdCase(ScenarioRunnerTest.java:281)
+uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest.runAllScenariosFor(ScenarioRunnerTest.java:209)
 uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest.scenarios_should_behave_as_specified(ScenarioRunnerTest.java:142)
 org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
 org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)

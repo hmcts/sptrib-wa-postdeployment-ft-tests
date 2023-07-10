@@ -21,8 +21,8 @@ spring:
       client:
         registration:
           oidc:
-            client-id: ${WA_IDAM_CLIENT_ID:TEST_SYSTEM_USER@mailinator.com}
-            client-secret: ${WA_IDAM_CLIENT_SECRET:genericPassword123}
+            client-id: ${WA_IDAM_CLIENT_ID:sptribs-case-api}
+            client-secret: ${WA_IDAM_CLIENT_SECRET:thUphEveC2Ekuqedaneh4jEcRuba4t2t}
 azure:
   application-insights:
     instrumentation-key: ${wa.AppInsightsInstrumentationKey:00000000-0000-0000-0000-000000000000}
@@ -32,8 +32,8 @@ idam:
   redirectUrl: ${IA_IDAM_REDIRECT_URI:http://xui-webapp/oauth2/callback}
   scope: "openid profile roles"
   s2s-auth:
-    url: ${S2S_URL:http://service-auth-provider-api}
-    secret: ${S2S_SECRET_TASK_MANAGEMENT_API:AAAAAAAAAAAAAAAA}
+    url: ${S2S_URL:http://rpe-service-auth-provider-aat.service.core-compute-aat.internal}
+    secret: ${S2S_SECRET_TASK_MANAGEMENT_API:UYIEF2FUGBFE666Y}
     name: ${S2S_NAME_TASK_MANAGEMENT_API:wa_task_management_api}
   api:
     baseUrl: ${IDAM_URL:https://idam-web-public.aat.platform.hmcts.net}

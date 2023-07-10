@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">10.957s</div>
+<div class="counter">14.214s</div>
 <p>duration</p>
 </div>
 </td>
@@ -76,62 +76,74 @@
 <a name="scenarios_should_behave_as_specified"></a>
 <h3 class="failures">scenarios_should_behave_as_specified</h3>
 <span class="code">
-<pre>java.lang.NullPointerException
-	at java.base/java.util.Objects.requireNonNull(Objects.java:208)
-	at uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest.runAllScenariosFor(ScenarioRunnerTest.java:190)
-	at uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest.scenarios_should_behave_as_specified(ScenarioRunnerTest.java:142)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at net.serenitybdd.junit.runners.SerenityStatement.evaluate(SerenityStatement.java:33)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
-	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
-	at net.serenitybdd.junit.runners.SerenityRunner.performRunChild(SerenityRunner.java:467)
-	at net.serenitybdd.junit.runners.SerenityRunner.runChild(SerenityRunner.java:441)
-	at net.serenitybdd.junit.runners.SerenityRunner.runChild(SerenityRunner.java:57)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
-	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
-	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at net.serenitybdd.junit.runners.SerenityRunner.run(SerenityRunner.java:250)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
-	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:42)
-	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)
-	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:72)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
-	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
-	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
+<pre>feign.FeignException$Forbidden: [403] during [GET] to [http://localhost:4452/caseworkers/st-test1/jurisdictions/ST_CIC/case-types/CriminalInjuriesCompensation/event-triggers/caseworker-create-case/token] [CoreCaseDataApi#startForCaseworker(String,String,String,String,String,String)]: []
+	at app//feign.FeignException.clientErrorStatus(FeignException.java:217)
+	at app//feign.FeignException.errorStatus(FeignException.java:194)
+	at app//feign.FeignException.errorStatus(FeignException.java:185)
+	at app//feign.codec.ErrorDecoder$Default.decode(ErrorDecoder.java:92)
+	at app//feign.AsyncResponseHandler.handleResponse(AsyncResponseHandler.java:96)
+	at app//feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:138)
+	at app//feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:89)
+	at app//feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:100)
+	at app/jdk.proxy3/jdk.proxy3.$Proxy154.startForCaseworker(Unknown Source)
+	at app//uk.gov.hmcts.reform.wapostdeploymentfttests.services.CcdCaseCreator.createInitialStartEventAndSubmit(CcdCaseCreator.java:109)
+	at app//uk.gov.hmcts.reform.wapostdeploymentfttests.services.CcdCaseCreator.createCase(CcdCaseCreator.java:57)
+	at app//uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest.lambda$createBaseCcdCase$0(ScenarioRunnerTest.java:283)
+	at java.base@17.0.3/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at app//uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest.createBaseCcdCase(ScenarioRunnerTest.java:281)
+	at app//uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest.runAllScenariosFor(ScenarioRunnerTest.java:209)
+	at app//uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest.scenarios_should_behave_as_specified(ScenarioRunnerTest.java:142)
+	at java.base@17.0.3/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.3/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.3/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.3/java.lang.reflect.Method.invoke(Method.java:568)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//net.serenitybdd.junit.runners.SerenityStatement.evaluate(SerenityStatement.java:33)
+	at app//org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at app//org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at app//org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at app//org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//net.serenitybdd.junit.runners.SerenityRunner.performRunChild(SerenityRunner.java:467)
+	at app//net.serenitybdd.junit.runners.SerenityRunner.runChild(SerenityRunner.java:441)
+	at app//net.serenitybdd.junit.runners.SerenityRunner.runChild(SerenityRunner.java:57)
+	at app//org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at app//org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at app//org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at app//org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at app//org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at app//org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at app//org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at app//org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at app//org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at app//org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at app//net.serenitybdd.junit.runners.SerenityRunner.run(SerenityRunner.java:250)
+	at app//org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at app//org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at app//org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:42)
+	at app//org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)
+	at app//org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:72)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at app//org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at app//org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at app//org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:110)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:90)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:85)
 	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base@17.0.3/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.3/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.3/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.3/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
 	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
@@ -144,8 +156,8 @@
 	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
 </pre>
 </span>
 </div>
@@ -162,7 +174,7 @@
 </thead>
 <tr>
 <td class="failures">scenarios_should_behave_as_specified</td>
-<td class="failures">10.957s</td>
+<td class="failures">14.214s</td>
 <td class="failures">failed</td>
 </tr>
 </table>
@@ -170,7 +182,7 @@
 <div id="tab2" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2023-07-06T17:55:35.312 INFO  [Test worker]  
+<pre>2023-07-10T15:50:58.689 INFO  [Test worker]  
 
 -------------------------------------------------------------------------------------
      _______. _______ .______       _______ .__   __.  __  .___________.____    ____ 
@@ -186,8 +198,8 @@
  Serenity BDD Support and Training at http://serenity-bdd.info/#/trainingandsupport  
 -------------------------------------------------------------------------------------
 
-2023-07-06T17:55:35.419 INFO  [Test worker]  Test Suite Started: Scenario runner test
-2023-07-06T17:55:35.448 INFO  [Test worker]  
+2023-07-10T15:50:58.803 INFO  [Test worker]  Test Suite Started: Scenario runner test
+2023-07-10T15:50:58.853 INFO  [Test worker]  
   _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
  |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
    | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
@@ -204,28 +216,34 @@ scenarios_should_behave_as_specified
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::               (v2.7.11)
 
-2023-07-06T17:55:37.173 INFO  [Test worker] u.g.h.r.wapostdeploymentfttests.ScenarioRunnerTest Starting ScenarioRunnerTest using Java 17.0.3 on localhost.localdomain with PID 22580 (started by hmcts in /home/hmcts/workspace/sptrib-wa-postdeployment-ft-tests)
-2023-07-06T17:55:37.174 INFO  [Test worker] u.g.h.r.wapostdeploymentfttests.ScenarioRunnerTest The following 1 profile is active: &quot;functional&quot;
-2023-07-06T17:55:39.148 INFO  [Test worker] o.springframework.cloud.context.scope.GenericScope BeanFactory id=d8933ff4-2713-3624-9250-eb0c4452aefe
-2023-07-06T17:55:45.708 INFO  [Test worker] org.springframework.cloud.commons.util.InetUtils Cannot determine local hostname
-2023-07-06T17:55:45.765 INFO  [Test worker] o.s.b.actuate.endpoint.web.EndpointLinksResolver Exposing 2 endpoint(s) beneath base path ''
-2023-07-06T17:55:45.820 INFO  [Test worker] u.g.h.r.wapostdeploymentfttests.ScenarioRunnerTest Started ScenarioRunnerTest in 10.225 seconds (JVM running for 14.38)
-2023-07-06T17:55:45.905 INFO  [Test worker] o.s.b.t.context.SpringBootTestContextBootstrapper Neither @ContextConfiguration nor @ContextHierarchy found for test class [uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest], using SpringBootContextLoader
-2023-07-06T17:55:45.906 INFO  [Test worker] o.s.test.context.support.AbstractContextLoader Could not detect default resource locations for test class [uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2023-07-06T17:55:45.906 INFO  [Test worker] o.s.t.c.support.AnnotationConfigContextLoaderUtils Could not detect default configuration classes for test class [uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest]: ScenarioRunnerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2023-07-06T17:55:45.908 INFO  [Test worker] o.s.b.t.context.SpringBootTestContextBootstrapper Found @SpringBootConfiguration uk.gov.hmcts.reform.wapostdeploymentfttests.Application for test class uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest
-2023-07-06T17:55:45.910 INFO  [Test worker] o.s.b.t.context.SpringBootTestContextBootstrapper Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2023-07-06T17:55:45.912 INFO  [Test worker] o.s.b.t.context.SpringBootTestContextBootstrapper Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@72fedd85, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5cd9439a, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@164e9564, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1ecb92f9, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1add7650, org.springframework.test.context.support.DirtiesContextTestExecutionListener@c0e2302, org.springframework.test.context.event.EventPublishingTestExecutionListener@6e897252, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@2c977920, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5d09e514, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2062db84, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@55c3638, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@129501ca, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@2667c9]
-?[36m-------------------------------------------------------------------?[0m
-?[33m⚙️️ FOUND 0 WA-DLQ SCENARIOS?[0m
-?[36m-------------------------------------------------------------------?[0m
+2023-07-10T15:51:00.638 INFO  [Test worker] u.g.h.r.wapostdeploymentfttests.ScenarioRunnerTest Starting ScenarioRunnerTest using Java 17.0.3 on localhost.localdomain with PID 39867 (started by hmcts in /home/hmcts/workspace/sptribs-wa-post-deployment-ft-tests)
+2023-07-10T15:51:00.649 INFO  [Test worker] u.g.h.r.wapostdeploymentfttests.ScenarioRunnerTest The following 1 profile is active: &quot;functional&quot;
+2023-07-10T15:51:03.231 INFO  [Test worker] o.springframework.cloud.context.scope.GenericScope BeanFactory id=d8933ff4-2713-3624-9250-eb0c4452aefe
+2023-07-10T15:51:10.605 INFO  [Test worker] org.springframework.cloud.commons.util.InetUtils Cannot determine local hostname
+2023-07-10T15:51:10.660 INFO  [Test worker] o.s.b.actuate.endpoint.web.EndpointLinksResolver Exposing 2 endpoint(s) beneath base path ''
+2023-07-10T15:51:10.725 INFO  [Test worker] u.g.h.r.wapostdeploymentfttests.ScenarioRunnerTest Started ScenarioRunnerTest in 11.73 seconds (JVM running for 17.912)
+2023-07-10T15:51:10.818 INFO  [Test worker] o.s.b.t.context.SpringBootTestContextBootstrapper Neither @ContextConfiguration nor @ContextHierarchy found for test class [uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest], using SpringBootContextLoader
+2023-07-10T15:51:10.819 INFO  [Test worker] o.s.test.context.support.AbstractContextLoader Could not detect default resource locations for test class [uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2023-07-10T15:51:10.823 INFO  [Test worker] o.s.t.c.support.AnnotationConfigContextLoaderUtils Could not detect default configuration classes for test class [uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest]: ScenarioRunnerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-07-10T15:51:10.826 INFO  [Test worker] o.s.b.t.context.SpringBootTestContextBootstrapper Found @SpringBootConfiguration uk.gov.hmcts.reform.wapostdeploymentfttests.Application for test class uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest
+2023-07-10T15:51:10.827 INFO  [Test worker] o.s.b.t.context.SpringBootTestContextBootstrapper Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2023-07-10T15:51:10.828 INFO  [Test worker] o.s.b.t.context.SpringBootTestContextBootstrapper Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5a06a235, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@13c3a3e1, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1b9e5334, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@41e51140, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@2e9d0443, org.springframework.test.context.support.DirtiesContextTestExecutionListener@204f76da, org.springframework.test.context.event.EventPublishingTestExecutionListener@49a18614, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@20a7e171, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@66de563a, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3d7c059d, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@7828b500, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@671b6f1d, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@73e08a42]
+2023-07-10T15:51:11.490 INFO  [Test worker] u.g.h.r.wapostdeploymentfttests.ScenarioRunnerTest ==== runAllScenariosFor( sptribs ) 
 ?[36m-------------------------------------------------------------------?[0m
 ?[33m⚙️️ FOUND 1 SPTRIBS SCENARIOS?[0m
 ?[36m-------------------------------------------------------------------?[0m
-?[33mℹ️ SCENARIO submitAppeal with appeal non-compliant?[0m
+?[33mℹ️ SCENARIO create reviewBilingualDocument task?[0m
+2023-07-10T15:51:11.529 INFO  [Test worker] u.g.h.r.wapostdeploymentfttests.ScenarioRunnerTest ===============  CredentialRequest(credentialsKey=caseworker, granularPermission=false) 
+2023-07-10T15:51:11.544 INFO  [Test worker] u.g.h.r.w.services.AuthorizationHeadersProvider ========================= Getting normal user credential  CredentialRequest(credentialsKey=caseworker, granularPermission=false)
+2023-07-10T15:51:11.544 INFO  [Test worker] u.g.h.r.w.services.AuthorizationHeadersProvider =============== body:  {grant_type=[password], redirect_uri=[http://xui-webapp/oauth2/callback], client_id=[sptribs-case-api], client_secret=[thUphEveC2Ekuqedaneh4jEcRuba4t2t], username=[st-test1@mailinator.com], password=[Pa55w0rd11], scope=[openid profile roles]} 
+2023-07-10T15:51:11.544 INFO  [Test worker] u.g.h.r.w.services.AuthorizationHeadersProvider =============== key:  caseworker 
+2023-07-10T15:51:11.544 INFO  [Test worker] u.g.h.r.w.services.AuthorizationHeadersProvider =============== tokens:  {} 
+2023-07-10T15:51:12.556 INFO  [Test worker] u.g.h.r.w.services.AuthorizationHeadersProvider =============== authorization : Authorization
+2023-07-10T15:51:12.556 INFO  [Test worker] u.g.h.r.w.services.AuthorizationHeadersProvider =============== access token : Bearer eyJ0eXAiOiJKV1QiLCJraWQiOiIxZXIwV1J3Z0lPVEFGb2pFNHJDL2ZiZUt1M0k9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJzdC10ZXN0MUBtYWlsaW5hdG9yLmNvbSIsImN0cyI6Ik9BVVRIMl9TVEFURUxFU1NfR1JBTlQiLCJhdXRoX2xldmVsIjowLCJhdWRpdFRyYWNraW5nSWQiOiI5Y2Q2YTdlNC03NzZkLTQyYzQtYTllNS0zNmJlYTg3ZDUzNzctMzk3MTUxNzEiLCJzdWJuYW1lIjoic3QtdGVzdDFAbWFpbGluYXRvci5jb20iLCJpc3MiOiJodHRwczovL2Zvcmdlcm9jay1hbS5zZXJ2aWNlLmNvcmUtY29tcHV0ZS1pZGFtLWFhdDIuaW50ZXJuYWw6ODQ0My9vcGVuYW0vb2F1dGgyL3JlYWxtcy9yb290L3JlYWxtcy9obWN0cyIsInRva2VuTmFtZSI6ImFjY2Vzc190b2tlbiIsInRva2VuX3R5cGUiOiJCZWFyZXIiLCJhdXRoR3JhbnRJZCI6IjRodEFjM00zaEROSHhsOU1WWV9QbGtrVjJVUSIsImF1ZCI6InNwdHJpYnMtY2FzZS1hcGkiLCJuYmYiOjE2ODkwMDA2NzIsImdyYW50X3R5cGUiOiJwYXNzd29yZCIsInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiLCJyb2xlcyJdLCJhdXRoX3RpbWUiOjE2ODkwMDA2NzIsInJlYWxtIjoiL2htY3RzIiwiZXhwIjoxNjg5MDI5NDcyLCJpYXQiOjE2ODkwMDA2NzIsImV4cGlyZXNfaW4iOjI4ODAwLCJqdGkiOiJwMmtiNWpNejNSXzNNa3N0YjV2eXd6WERWNEkifQ.fVSlrpVdy6ys4_mVCJoLAygwHRYr2D0zActj7fueygJPl-2lMre7GYroUZWRqPYYNBBeM5JOlfif7Pp1-W3TlrdWxMom7fchMpVQFotwHShfwlN5xL221io9IFd7AaCZlj1R-zgRIyWjRVdCsr63MUMKbL_svUajKHxzQ4lbUu6El3naKCVEQXTAXHSYipnYTnwN85Ep7sHH-WOPEcs6nC79ksE624pq8KKBIz4WQpMv2djuiWvTz5i5Fd3vEVr55fiPL98ovFnsK9uBUfk1b_WY-5UoRK1UF9qGRUTfHO67CqznUWGV5w4G4mxM79ZMpL7uOJWPKpyg_Yj_5oVjFw 
+2023-07-10T15:51:12.742 INFO  [Test worker] u.g.h.r.w.services.AuthorizationHeadersProvider ================ Service authorization ServiceAuthorization and token , Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ3YV90YXNrX21hbmFnZW1lbnRfYXBpIiwiZXhwIjoxNjg5MDE1MDcyfQ.LgPZEUq7XYCujSorNSFqH5hNieTEqjtwtztBiQGo5ibN94eb0NUCNy0XrDqahwZqgH6IbHuLxSk1zutScS0LxQ
 ?[36mℹ️ SCENARIO: Clean up idam users?[0m
 ?[36mℹ️ SCENARIO: All idam users removed?[0m
-2023-07-06T17:55:46.356 ERROR [Test worker]  
+2023-07-10T15:51:12.989 ERROR [Test worker]  
   _____   ___   ___   _____     ___   ___   ___    ___    ___ 
  |_   _| | __| / __| |_   _|   | __| | _ \ | _ \  / _ \  | _ \
    | |   | _|  \__ \   | |     | _|  |   / |   / | (_) | |   /
@@ -233,7 +251,7 @@ scenarios_should_behave_as_specified
 
 Scenarios should behave as specified
 ---------------------------------------------------------------
-2023-07-06T17:55:46.366 ERROR [Test worker]      
+2023-07-10T15:51:12.993 ERROR [Test worker]      [403] during [GET] to [http://localhost:4452/caseworkers/st-test1/jurisdictions/ST_CIC/case-types/CriminalInjuriesCompensation/event-triggers/caseworker-create-case/token] [CoreCaseDataApi#startForCaseworker(String,String,String,String,String,String)]: []
 </pre>
 </span>
 </div>
@@ -245,7 +263,7 @@ Scenarios should behave as specified
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.6.1</a> at 6 Jul 2023, 17:55:50</p>
+<a href="http://www.gradle.org">Gradle 8.2</a> at 10 Jul 2023, 15:51:15</p>
 </div>
 </div>
 </body>

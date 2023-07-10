@@ -56,6 +56,7 @@ public class AuthorizationHeadersProvider  implements AuthorizationHeaders {
 
     @Override
     public Headers getWaSystemUserAuthorization() {
+        log.info("=============== WA system user Authorization  ");
 
         return new Headers(
             getUserAuthorizationHeader(
@@ -72,14 +73,39 @@ public class AuthorizationHeadersProvider  implements AuthorizationHeaders {
         if ("WaSystemUser".equals(request.getCredentialsKey())) {
             return getWaSystemUserAuthorization();
         } else {
-
-            String userEmail = findOrGenerateUserAccount(request.getCredentialsKey(), request.isGranularPermission());
-
+            // String userEmail = findOrGenerateUserAccount(request.getCredentialsKey(), request.isGranularPermission());
+            log.info("========================= Getting normal user credential  {}",request);
             return new Headers(
-                getUserAuthorizationHeader(request.getCredentialsKey(), userEmail),
+                getUserAuthorizationHeader(request.getCredentialsKey()),
                 getServiceAuthorizationHeader()
             );
         }
+    }
+
+
+    public Header getUserAuthorizationHeader(String credentials) {
+        switch (credentials) {
+            case "superuser":
+                return getUserAuthorization(credentials, "st-super", "Pa55w0rd11");
+            case "caseworker":
+                return getUserAuthorization(credentials, "CASEWORKER", "CASEWORKER_PASSWORD");
+            case "clerk":
+                return getUserAuthorization(credentials, "CLERK_USERNAME", "CLERK_PASSWORD");
+            case "judge":
+                return getUserAuthorization(credentials, "JUDGE_USERNAME", "JUDGE_PASSWORD");
+            case "systemupdate":
+                return getUserAuthorization(credentials, "SYSTEMUPDATE_USERNAME", "SYSTEMUPDATE_PASSWORD");
+            case "CTSC-Administrator":
+                return getUserAuthorization(credentials, "CTSC_ADMINISTRATOR_USERNAME", "CTSC_ADMINISTRATOR_PASSWORD");
+            case "Regional-Centre-Admin":
+                return getUserAuthorization(credentials, "REGIONAL_CENTRE_ADMIN_USERNAME", "REGIONAL_CENTRE_ADMIN_PASSWORD");
+            default:
+                throw new IllegalStateException("Credentials implementation for '" + credentials + "' not found");
+        }
+    }
+
+    public Header getUserAuthorization(String key, String username, String password) {
+        return getUserAuthorizationHeader(key, System.getenv(username), System.getenv(password));
     }
 
     @Override
@@ -118,7 +144,7 @@ public class AuthorizationHeadersProvider  implements AuthorizationHeaders {
             SERVICE_AUTHORIZATION,
             user -> serviceAuthTokenGenerator.generate()
         );
-
+        log.info("================ Service authorization {} and token , {}",SERVICE_AUTHORIZATION,serviceToken);
         return new Header(SERVICE_AUTHORIZATION, serviceToken);
     }
 
@@ -129,11 +155,15 @@ public class AuthorizationHeadersProvider  implements AuthorizationHeaders {
     private Header getUserAuthorizationHeader(String key, String username, String password) {
 
         MultiValueMap<String, String> body = createIdamRequest(username, password);
-
+        log.info("=============== body:  {} " , body);
+        log.info("=============== key:  {} " , key);
+        log.info("=============== tokens:  {} " , tokens);
         String accessToken = tokens.computeIfAbsent(
             key,
             user -> "Bearer " + idamWebApi.token(body).getAccessToken()
         );
+        log.info("=============== authorization : {}", AUTHORIZATION);
+        log.info("=============== access token : {} " , accessToken);
         return new Header(AUTHORIZATION, accessToken);
     }
 
@@ -162,6 +192,12 @@ public class AuthorizationHeadersProvider  implements AuthorizationHeaders {
         String emailPrefix = granularPermission ? "wa-granular-permission-pdt" : "wa-pdt-";
         String userEmail = emailPrefix + UUID.randomUUID() + "@fake.hmcts.net";
 
+
+//        RoleCode c_worker = new RoleCode("caseworker");
+//        RoleCode c_worker_wa = new RoleCode("caseworker-wa");
+//        RoleCode c_worker_wa_task_officer = new RoleCode("caseworker-wa-task-officer");
+//        List<RoleCode> requiredRoles = new ArrayList<>(List.of(c_worker));
+
         List<RoleCode> requiredRoles = new ArrayList<>(List.of(
             new RoleCode("caseworker"),
             new RoleCode("caseworker-wa"),
@@ -172,7 +208,7 @@ public class AuthorizationHeadersProvider  implements AuthorizationHeaders {
 
         Map<String, Object> body = requestBody(userEmail, requiredRoles);
 
-        log.info("Attempting to create a new test account {}", body);
+        log.info("Attempting to send request to idam", body);
 
         idamWebApi.createTestUser(body);
 
@@ -195,10 +231,12 @@ public class AuthorizationHeadersProvider  implements AuthorizationHeaders {
         Map<String, Object> body = new ConcurrentHashMap<>();
         body.put("email", userEmail);
         body.put("password", WA_USER_PASSWORD);
+        body.put("id","wa-caseworker");
         body.put("forename", "WAPDTAccount");
         body.put("surname", "Functional");
         body.put("roles", requiredRoles);
         body.put("userGroup", userGroup);
+        log.info("======== this is body of request : {}",body.toString());
         return body;
     }
 

@@ -1,5 +1,9 @@
 package uk.gov.hmcts.reform.wapostdeploymentfttests.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import uk.gov.hmcts.reform.wapostdeploymentfttests.ScenarioRunnerTest;
+
 import java.util.Map;
 
 @SuppressWarnings("unchecked")

@@ -123,7 +123,6 @@ public class ScenarioRunnerTest extends SpringBootFunctionalBaseTest {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
 
-
         loadPropertiesIntoMapValueExpander();
 
         for (Preparer preparer : preparers) {
@@ -139,7 +138,9 @@ public class ScenarioRunnerTest extends SpringBootFunctionalBaseTest {
         Exception testException = null;
         try {
             for (File directory : directories) {
+                log.info("==== runAllScenariosFor( {} ) ", directory.getName());
                 runAllScenariosFor(directory.getName());
+                log.info("=============== finish all scenario ======== ");
             }
         } catch (Exception ex) {
             testException = ex;
@@ -152,7 +153,6 @@ public class ScenarioRunnerTest extends SpringBootFunctionalBaseTest {
                 throw testException;
             }
         }
-
         stopWatch.stop();
         Logger.say(SCENARIO_RUNNING_TIME, stopWatch.getTotalTimeSeconds());
     }
@@ -207,8 +207,9 @@ public class ScenarioRunnerTest extends SpringBootFunctionalBaseTest {
                     updateCaseClauseValues
                 );
                 createBaseCcdCase(scenario);
-
                 addSearchParameters(scenario, scenarioValues);
+
+                log.info("===============   ready ===");
 
                 if (scenario.getBeforeClauseValues() != null) {
                     Logger.say(SCENARIO_BEFORE_FOUND);
@@ -266,13 +267,16 @@ public class ScenarioRunnerTest extends SpringBootFunctionalBaseTest {
     }
 
     private void createBaseCcdCase(TestScenario scenario) throws IOException {
-        Map<String, Object> scenarioValues = scenario.getScenarioMapValues();
 
+        Map<String, Object> scenarioValues = scenario.getScenarioMapValues();
         CredentialRequest credentialRequest = extractCredentialRequest(scenarioValues, "required.credentials");
+        log.info("===============  {} " , credentialRequest);
         Headers requestAuthorizationHeaders = authorizationHeadersProvider.getWaUserAuthorization(credentialRequest);
 
         List<Map<String, Object>> ccdCaseToCreate = new ArrayList<>(Objects.requireNonNull(
             MapValueExtractor.extract(scenarioValues, "required.ccd")));
+
+
 
         ccdCaseToCreate.forEach(caseValues -> {
             try {

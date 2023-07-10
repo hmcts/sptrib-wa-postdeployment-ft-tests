@@ -1,0 +1,49 @@
+{
+  "cicBundles": [],
+  "cicCaseEmail": "a@b.com",
+  "securityClass": "PUBLIC",
+  "cicCaseAddress": {
+    "County": "",
+    "Country": "United Kingdom",
+    "PostCode": "SW11 1PD",
+    "PostTown": "London",
+    "AddressLine1": "1 Rse Way",
+    "AddressLine2": "",
+    "AddressLine3": ""
+  },
+  "closedDayCount": "",
+  "contactParties": {},
+  "cicCaseFullName": "TEST_SBR",
+  "cicCaseSchemeCic": "Preference",
+  "firstHearingDate": "",
+  "stayIsCaseStayed": "No",
+  "cicCasePartiesCIC": [
+    "SubjectCIC"
+  ],
+  "cicCaseSubjectCIC": [
+    "SubjectCIC"
+  ],
+  "hyphenatedCaseRef": "1688-0770-6751-7610",
+  "cicCaseDateOfBirth": "2000-01-01",
+  "cicCasePhoneNumber": "07412345678",
+  "cicCaseApplicantCIC": [],
+  "cicCaseCaseCategory": "Assessment",
+  "cicCaseFirstDueDate": "",
+  "editCicaCaseDetails": {},
+  "hearingSummaryExists": "YES",
+  "cicCaseRespondentName": "Appeals team",
+  "cicCaseCaseSubcategory": "Fatal",
+  "cicCaseRespondentEmail": "appeals.team@cica.gov.uk",
+  "cicCaseCaseReceivedDate": "2023-01-01",
+  "cicCaseClaimLinkedToCic": "No",
+  "allCaseworkerCICDocument": [],
+  "cicCaseRepresentativeCIC": [],
+  "newCaseworkerCICDocument": [],
+  "cicCaseFormReceivedInTime": "No",
+  "cicCaseMissedTheDeadLineCic": "No",
+  "cicCaseContactPreferenceType": "Email",
+  "cicCaseRespondentOrganisation": "CICA",
+  "cicCaseIsRepresentativePresent": "No",
+  "cicCaseCompensationClaimLinkCIC": "No",
+  "cicCaseApplicantDocumentsUploaded": []
+}

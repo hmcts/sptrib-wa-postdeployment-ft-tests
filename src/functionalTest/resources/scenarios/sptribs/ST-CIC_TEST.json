@@ -1,155 +1,111 @@
 {
-  "description": "submitAppeal with appeal non-compliant",
+  "description": "create reviewBilingualDocument task",
   "enabled": true,
-  "jurisdiction": "CIC",
-  "caseType": "criminalinjurycompensation",
+  "jurisdiction": "ST_CIC",
+  "caseType": "CriminalInjuriesCompensation",
   "options": {
     "taskRetrievalApi": "task-management-api"
   },
   "required": {
-    "credentials": "${IDAM_SYSTEM_UPDATE_USERNAME}",
-    "ccd": {
-      "eventId": "create-draft-order",
-      "state": "CaseManagement",
-      "caseData": {
-        "template": "minimal-appeal-started.json",
-        "replacements": {
-          "appeal": {
-            "mrnDetails": {
-              "dwpIssuingOffice": "DWP PIP (1)",
-              "mrnDate": "2018-02-01",
-              "mrnLateReason": null,
-              "mrnMissingReason": null
-            }
-          }
-        }
-      }
-    }
-  },
-  "test": {
-    "request": {
-      "credentials": "SSCSSystemUpdateUser",
-      "input": {
-        "eventMessage": {
-          "template": "minimal-ccd-event-message.json",
-          "replacements": {
-            "EventId": "nonCompliant",
-            "NewStateId": "appealCreated"
-          }
-        }
-      }
+    "credentials": {
+      "key": "caseworker"
     },
-    "expectation": {
-      "credentials": "SSCSCaseWorker",
-      "status": 200,
-      "numberOfTasksAvailable": 1,
-      "taskData": {
-        "template": "minimal-task-response.json",
-        "replacements": {
-          "tasks": [
+    "ccd": [
+      {
+        "eventId": "caseworker-create-case",
+        "caseData": {
+          "template": "minimal_st-cic_case.json",
+          "replacements": {
+          }
+        }
+      }
+    ]
+  },
+  "tests": [
+    {
+      "request": {
+        "credentials": {
+          "key": "caseworker"
+        },
+        "input": {
+          "eventMessages": [
             {
-              "id": "{$VERIFIER-UUID}",
-              "case_name": "Functional PostDeployment",
-              "case_id": "{$GENERATED_CASE_ID}",
-              "case_category": "Protection",
-              "name": "Review non-compliant appeal",
-              "type": "nonCompliantCase",
-              "task_state": "unassigned",
-              "task_system": "SELF",
-              "security_classification": "PUBLIC",
-              "task_title": "Review non-compliant appeal",
-              "created_date": "{$VERIFIER-ZONED_DATETIME_TODAY}",
-              "due_date": "{$VERIFIER-ZONED_DATETIME_TODAY+2_WORKING_DAYS}",
-              "execution_type": "Case Management Task",
-              "jurisdiction": "SSCS",
-              "case_type_id": "Benefit",
-              "region": "1",
-              "location": "765324",
-              "location_name": "Taylor House",
-              "auto_assigned": false,
-              "warnings": false,
-              "role_category": "LEGAL_OPERATIONS",
-              "warning_list": {
-                "values": [
-
-                ]
-              },
-              "case_management_category": "Protection",
-              "work_type_id": "decision_making_work",
-              "permissions": {
-                "values": [
-                  "Read",
-                  "Refer",
-                  "Own",
-                  "Manage",
-                  "Execute",
-                  "Cancel"
-                ]
+              "destination": "RestEndpoint",
+              "template": "minimal-ccd-event-message.json",
+              "replacements": {
+                "EventId": "uploadDocument",
+                "AdditionalData": {
+                  "Data": {
+                    "languagePreferenceWelsh": true
+                  }
+                }
               }
             }
           ]
         }
       },
-      "roleData": {
-        "roles": [
-          {
-            "role_category": "LEGAL_OPERATIONS",
-            "role_name": "case-manager",
-            "permissions": [
-              "Read",
-              "Refer",
-              "Own"
-            ],
-            "authorisations": [
-            ]
+      "expectations": [
+        {
+          "credentials": {
+            "key": "CTSC-Administrator"
           },
-          {
-            "role_category": "JUDICIAL",
-            "role_name": "judge",
-            "permissions": [
-              "Read",
-              "Refer",
-              "Execute"
-            ],
-            "authorisations": [
-              "SSCS"
-            ]
+          "status": 200,
+          "numberOfTasksAvailable": 2,
+          "taskData": {
+            "template": "minimal-task-response.json",
+            "replacements": {
+              "tasks": [
+                {
+                  "type": "actionUnprocessedCorrespondence",
+                  "name": "Action Unprocessed Correspondence",
+                  "role_category": "CTSC",
+                  "description": "[Action Unprocessed Correspondence](/case/SSCS/Benefit/${[CASE_REFERENCE]}/trigger/actionUnprocessedCorrespondence)"
+                },
+                {
+                  "type": "reviewBilingualDocument",
+                  "name": "Review Bi-Lingual Document",
+                  "role_category": "CTSC",
+                  "description": "[Request translation from WLU](/case/SSCS/Benefit/${[CASE_REFERENCE]}/trigger/requestTranslationFromWLU)"
+                }
+              ]
+            }
           },
-          {
-            "role_category": "LEGAL_OPERATIONS",
-            "role_name": "senior-tribunal-caseworker",
-            "permissions": [
-              "Read",
-              "Refer",
-              "Own"
-            ],
-            "authorisations": [
-            ]
-          },
-          {
-            "role_name": "task-supervisor",
-            "permissions": [
-              "Read",
-              "Refer",
-              "Manage",
-              "Cancel"
-            ],
-            "authorisations": [
-            ]
-          },
-          {
-            "role_category": "LEGAL_OPERATIONS",
-            "role_name": "tribunal-caseworker",
-            "permissions": [
-              "Read",
-              "Refer",
-              "Own"
-            ],
-            "authorisations": [
+          "roleData": {
+            "roles": [
+              {
+                "role_category": "",
+                "role_name": "case-allocator",
+                "permissions": [ "Read,Own,Manage,Complete,Cancel,Assign,Unassign,Claim,Unclaim" ],
+                "authorisations": []
+              },
+              {
+                "role_category": "",
+                "role_name": "task-supervisor",
+                "permissions": [ "Read,Own,Manage,Complete,Cancel,Assign,Unassign,Claim,Unclaim" ],
+                "authorisations": []
+              },
+              {
+                "role_category": "CTSC",
+                "role_name": "Allocated-CTSC-Caseworker",
+                "permissions": [ "Read,Own,Claim,Unclaim,Manage,UnclaimAssign,CompleteOwn" ],
+                "authorisations": []
+              },
+              {
+                "role_category": "CTSC",
+                "role_name": "CTSC-Administrator",
+                "permissions": [ "Read,Own,Claim,Unclaim,Manage,UnclaimAssign,CompleteOwn" ],
+                "authorisations": []
+              },
+              {
+                "role_category": "CTSC",
+                "role_name": "CTSC-Team-Leader",
+                "permissions": [ "Read,Own,Claim,Unclaim,Manage,UnclaimAssign,Assign,Unassign,Cancel,CompleteOwn" ],
+                "authorisations": []
+              }
             ]
           }
-        ]
-      }
+        }
+      ]
     }
-  }
+  ]
 }
