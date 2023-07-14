@@ -2,8 +2,8 @@
   "tasks": [
     {
       "id": "{$VERIFIER-UUID}",
-      "jurisdiction": "WA",
-      "case_type_id": "WaCaseType",
+      "jurisdiction": "st_cic",
+      "case_type_id": "CriminalInjuriesCompensation",
       "case_id": "{$GENERATED_CASE_ID}"
     }
   ]

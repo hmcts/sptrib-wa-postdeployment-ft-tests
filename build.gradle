@@ -94,25 +94,35 @@ task functional(type: Test) {
   environment 'S2S_URL_WA', 'http://rpe-service-auth-provider-aat.service.core-compute-aat.internal'
   environment 'S2S_SECRET_WORKFLOW_API','MZEGJJ5JWRCYXTOI'
   environment 'S2S_SECRET_CASE_EVENT_HANDLER','6NVQZ2FE46UPTHRO'
+  environment 'ROLE_ASSIGNMENT_URL', 'http://localhost:4096'
+
+  environment 'S2S_NAME_TASK_MANAGEMENT_API','sptribs_case_api'
+  environment 'S2S_SECRET_TASK_MANAGEMENT_API','6WI24X55Y6AW6UME'
+//  environment 'S2S_NAME_TASK_MANAGEMENT_API','wa_task_management_api'
+//  environment 'S2S_SECRET_TASK_MANAGEMENT_API','UYIEF2FUGBFE666Y'
+
+
   environment 'S2S_SECRET_TASK_MONITOR','KNIV46LMP5OGAAAY'
-  environment 'S2S_SECRET_TASK_MANAGEMENT_API','UYIEF2FUGBFE666Y'
+
+  environment 'S2S_SECRET_TASK_MANAGEMENT_API','6WI24X55Y6AW6UME'
   environment 'LAUNCH_DARKLY_SDK_KEY_WA' ,'api-0ba8bb5e-0b11-4f84-9655-93f9f8ccca94'
- // environment 'WA_SYSTEM_PASSWORD', 'System01'
 
   environment 'WA_IDAM_CLIENT_ID','sptribs-case-api'
   environment 'WA_IDAM_CLIENT_SECRET', "thUphEveC2Ekuqedaneh4jEcRuba4t2t"
 
-  environment 'CASEWORKER','st-test1@mailinator.com'
+  environment 'CASEWORKER','st-superuser10@mailinator.com'
   environment 'CASEWORKER_PASSWORD', 'Pa55w0rd11'
 
 
-//  environment 'WA_SYSTEM_USERNAME','wa-system-user@hmcts.net'
-//  environment 'WA_SYSTEM_PASSWORD','System01'
+  environment 'WA_SYSTEM_USERNAME','wa-system-user@hmcts.net'
+  environment 'WA_SYSTEM_PASSWORD','System01'
+
+
 //  environment 'WA_SYSTEM_USERNAME','st-idam1@hmcts.net'
 //  environment 'WA_SYSTEM_PASSWORD','Ref0rmIsFun'
 
-  environment 'WA_SYSTEM_USERNAME','TEST_SYSTEM_USER@mailinator.com'
-  environment 'WA_SYSTEM_PASSWORD','genericPassword123'
+//  environment 'WA_SYSTEM_USERNAME','TEST_SYSTEM_USER@mailinator.com'
+//  environment 'WA_SYSTEM_PASSWORD','genericPassword123'
 
 //  did not work , return same result as
 //  environment 'WA_SYSTEM_USERNAME','idamOwner@hmcts.net'

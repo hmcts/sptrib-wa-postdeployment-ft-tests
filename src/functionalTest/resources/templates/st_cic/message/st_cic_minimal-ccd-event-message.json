@@ -2,9 +2,7 @@
   "EventInstanceId": "{$RANDOM_UUID}",
   "CaseId": "{$GENERATED_CASE_ID}",
   "EventTimeStamp": "{$LOCAL_DATETIME_TODAY}",
-  "JurisdictionId": "WA",
-  "CaseTypeId": "WaCaseType",
-  "EventId": "CREATE",
-  "NewStateId": "TODO",
+  "JurisdictionId": "st_cic",
+  "CaseTypeId": "CriminalInjuriesCompensation",
   "UserId": "{$USER_ID}"
 }
