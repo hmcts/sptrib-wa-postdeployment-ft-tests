@@ -56,8 +56,6 @@ public class AuthorizationHeadersProvider  implements AuthorizationHeaders {
 
     @Override
     public Headers getWaSystemUserAuthorization() {
-        log.info("=============== WA system user Authorization  ");
-
         return new Headers(
             getUserAuthorizationHeader(
                 "WaSystemUser",
@@ -74,7 +72,6 @@ public class AuthorizationHeadersProvider  implements AuthorizationHeaders {
             return getWaSystemUserAuthorization();
         } else {
             // String userEmail = findOrGenerateUserAccount(request.getCredentialsKey(), request.isGranularPermission());
-            log.info("========================= Getting normal user credential  {}",request);
             return new Headers(
                 getUserAuthorizationHeader(request.getCredentialsKey()),
                 getServiceAuthorizationHeader()
@@ -86,7 +83,7 @@ public class AuthorizationHeadersProvider  implements AuthorizationHeaders {
     public Header getUserAuthorizationHeader(String credentials) {
         switch (credentials) {
             case "superuser":
-                return getUserAuthorization(credentials, "st-super", "Pa55w0rd11");
+                return getUserAuthorization(credentials, "SUPERUSER", "SUPERUSER_PASSWORD");
             case "caseworker":
                 return getUserAuthorization(credentials, "CASEWORKER", "CASEWORKER_PASSWORD");
             case "clerk":

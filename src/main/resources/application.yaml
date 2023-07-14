@@ -21,30 +21,30 @@ spring:
       client:
         registration:
           oidc:
-            client-id: ${WA_IDAM_CLIENT_ID:sptribs-case-api}
-            client-secret: ${WA_IDAM_CLIENT_SECRET:thUphEveC2Ekuqedaneh4jEcRuba4t2t}
+            client-id: ${WA_IDAM_CLIENT_ID}
+            client-secret: ${WA_IDAM_CLIENT_SECRET}
 azure:
   application-insights:
     instrumentation-key: ${wa.AppInsightsInstrumentationKey:00000000-0000-0000-0000-000000000000}
 
 idam:
-  baseUrl: ${OPEN_ID_IDAM_URL:https://idam-web-public.aat.platform.hmcts.net}
-  redirectUrl: ${IA_IDAM_REDIRECT_URI:http://xui-webapp/oauth2/callback}
+  baseUrl: ${WA_IDAM_URL}
+  redirectUrl: ${WA_IDAM_REDIRECT_URI}
   scope: "openid profile roles"
   s2s-auth:
-    url: ${S2S_URL:http://rpe-service-auth-provider-aat.service.core-compute-aat.internal}
-    secret: ${S2S_SECRET_TASK_MANAGEMENT_API:UYIEF2FUGBFE666Y}
-    name: ${S2S_NAME_TASK_MANAGEMENT_API:wa_task_management_api}
+    url: ${S2S_URL}
+    secret: ${S2S_SECRET_TASK_MANAGEMENT_API}
+    name: ${S2S_NAME_TASK_MANAGEMENT_API}
   api:
-    baseUrl: ${IDAM_URL:https://idam-web-public.aat.platform.hmcts.net}
+    baseUrl: ${WA_IDAM_URL}
   test:
-    userCleanupEnabled: ${ENABLE_TEST_USER_DELETION:false}
+    userCleanupEnabled: ${ENABLE_TEST_USER_DELETION}
 
 camunda:
-  url: ${CAMUNDA_URL:http://camunda-local-bpm/engine-rest}
+  url: ${CAMUNDA_URL}
 
 role-assignment-service:
-  url: ${ROLE_ASSIGNMENT_URL:http://role-assignment}
+  url: ${ROLE_ASSIGNMENT_URL}
 
 logging:
   level:

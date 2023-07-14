@@ -80,56 +80,27 @@ test {
 }
 
 task functional(type: Test) {
-  environment 'ADDITIONAL_COMPOSE_FILES_WA', 'cft-lib-work-allocation.yml'
-  environment 'ENABLE_WORK_ALLOCATION', 'true'
-  environment 'RSE_LIB_ADDITIONAL_DATABASES', 'emstitch,ccd_data,camunda,cft_task_db,sscsjobscheduler,evidence,wa_case_event_messages_db,wa_workflow_api'
-  environment 'CASE_DOCUMENT_S2S_AUTHORISED_SERVICES', 'ccd_case_document_am_api,ccd_gw,xui_webapp,ccd_data,bulk_scan_processor,sscs,wa_task_management_api,wa_task_monitor,camunda_bpm,wa_workflow_api,wa_case_event_handler,em_stitching_api'
-  environment 'DATA_STORE_S2S_AUTHORISED_SERVICES', 'ccd_gw,ccd_data,ccd_ps,payment-api,xui_webapp,sscs,ccd_case_document_am_api,am_role_assignment_service,em_ccd_orchestrator,em_stitching_api,wa_task_management_api,wa_task_monitor,camunda_bpm,wa_workflow_api,wa_case_event_handler'
   environment 'AZURE_SERVICE_BUS_CONNECTION_STRING','Endpoint=sb://ccd-servicebus-demo.servicebus.windows.net/;SharedAccessKeyName=SendAndReceiveCCDMessage;SharedAccessKey=BXOmN0uU5RZN7KW51soNUv7xNBcNtXqwh+ASbD8y4p4=;EntityPath=st-ccd-case-event'
   environment 'AZURE_SERVICE_BUS_TOPIC_NAME','st-ccd-case-event'
-  environment 'AZURE_SERVICE_BUS_SUBSCRIPTION_NAME', 'sptribs_sabir_local'
-  environment 'AZURE_SERVICE_BUS_CCD_CASE_EVENTS_SUBSCRIPTION_NAME', 'sptribs_sabir_local'
-  environment 'AZURE_SERVICE_BUS_MESSAGE_AUTHOR', 'sabir'
-  environment 'IDAM_API_BASEURL_WA', 'https://idam-web-public.aat.platform.hmcts.net'
-  environment 'S2S_URL_WA', 'http://rpe-service-auth-provider-aat.service.core-compute-aat.internal'
-  environment 'S2S_SECRET_WORKFLOW_API','MZEGJJ5JWRCYXTOI'
-  environment 'S2S_SECRET_CASE_EVENT_HANDLER','6NVQZ2FE46UPTHRO'
-  environment 'ROLE_ASSIGNMENT_URL', 'http://localhost:4096'
 
-  environment 'S2S_NAME_TASK_MANAGEMENT_API','sptribs_case_api'
-  environment 'S2S_SECRET_TASK_MANAGEMENT_API','6WI24X55Y6AW6UME'
-//  environment 'S2S_NAME_TASK_MANAGEMENT_API','wa_task_management_api'
-//  environment 'S2S_SECRET_TASK_MANAGEMENT_API','UYIEF2FUGBFE666Y'
-
-
-  environment 'S2S_SECRET_TASK_MONITOR','KNIV46LMP5OGAAAY'
-
-  environment 'S2S_SECRET_TASK_MANAGEMENT_API','6WI24X55Y6AW6UME'
-  environment 'LAUNCH_DARKLY_SDK_KEY_WA' ,'api-0ba8bb5e-0b11-4f84-9655-93f9f8ccca94'
-
+// used for application yaml.file
   environment 'WA_IDAM_CLIENT_ID','sptribs-case-api'
   environment 'WA_IDAM_CLIENT_SECRET', "thUphEveC2Ekuqedaneh4jEcRuba4t2t"
-
+  environment 'WA_IDAM_URL','https://idam-web-public.aat.platform.hmcts.net'
+  environment 'WA_IDAM_REDIRECT_URI', 'http://xui-webapp/oauth2/callback'
+  environment 'S2S_URL','http://rpe-service-auth-provider-aat.service.core-compute-aat.internal'
+  environment 'S2S_SECRET_TASK_MANAGEMENT_API','6WI24X55Y6AW6UME'
+  environment 'S2S_NAME_TASK_MANAGEMENT_API','sptribs_case_api'
+  environment 'CAMUNDA_URL', 'http://camunda-local-bpm/engine-rest'
+  environment 'ENABLE_TEST_USER_DELETION', 'false'
+  environment 'ROLE_ASSIGNMENT_URL', 'http://role-assignment'
+  environment 'WA_SYSTEM_USERNAME','wa-system-user@hmcts.net'
+  environment 'WA_SYSTEM_PASSWORD','System01'
+//
   environment 'CASEWORKER','st-superuser10@mailinator.com'
   environment 'CASEWORKER_PASSWORD', 'Pa55w0rd11'
 
 
-  environment 'WA_SYSTEM_USERNAME','wa-system-user@hmcts.net'
-  environment 'WA_SYSTEM_PASSWORD','System01'
-
-
-//  environment 'WA_SYSTEM_USERNAME','st-idam1@hmcts.net'
-//  environment 'WA_SYSTEM_PASSWORD','Ref0rmIsFun'
-
-//  environment 'WA_SYSTEM_USERNAME','TEST_SYSTEM_USER@mailinator.com'
-//  environment 'WA_SYSTEM_PASSWORD','genericPassword123'
-
-//  did not work , return same result as
-//  environment 'WA_SYSTEM_USERNAME','idamOwner@hmcts.net'
-//  environment 'WA_SYSTEM_PASSWORD','Ref0rmIsFun'
-
-  environment 'IDAM_SYSTEM_UPDATE_USERNAME','TEST_SYSTEM_USER@mailinator.com'
-  environment 'IDAM_SYSTEM_UPDATE_PASSWORD', 'genericPassword123'
 
     description = "Runs functional tests"
     group = "Verification"
