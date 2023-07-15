@@ -1,0 +1,8 @@
+{
+  "EventInstanceId": "{$RANDOM_UUID}",
+  "CaseId": "{$GENERATED_CASE_ID}",
+  "EventTimeStamp": "{$LOCAL_DATETIME_TODAY}",
+  "JurisdictionId": "st_cic",
+  "CaseTypeId": "CriminalInjuriesCompensation",
+  "UserId": "{$USER_ID}"
+}

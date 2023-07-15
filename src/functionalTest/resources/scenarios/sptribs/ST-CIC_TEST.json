@@ -1,155 +1,100 @@
 {
-  "description": "submitAppeal with appeal non-compliant",
+  "description": "Sptribs Work Allocation Post Deployment Scenario Test",
   "enabled": true,
-  "jurisdiction": "CIC",
-  "caseType": "criminalinjurycompensation",
+  "jurisdiction": "st_cic",
+  "caseType": "CriminalInjuriesCompensation",
   "options": {
     "taskRetrievalApi": "task-management-api"
   },
   "required": {
-    "credentials": "${IDAM_SYSTEM_UPDATE_USERNAME}",
-    "ccd": {
-      "eventId": "create-draft-order",
-      "state": "CaseManagement",
-      "caseData": {
-        "template": "minimal-appeal-started.json",
-        "replacements": {
-          "appeal": {
-            "mrnDetails": {
-              "dwpIssuingOffice": "DWP PIP (1)",
-              "mrnDate": "2018-02-01",
-              "mrnLateReason": null,
-              "mrnMissingReason": null
-            }
-          }
-        }
-      }
-    }
-  },
-  "test": {
-    "request": {
-      "credentials": "SSCSSystemUpdateUser",
-      "input": {
-        "eventMessage": {
-          "template": "minimal-ccd-event-message.json",
-          "replacements": {
-            "EventId": "nonCompliant",
-            "NewStateId": "appealCreated"
-          }
-        }
-      }
+    "credentials": {
+      "key": "caseworker"
     },
-    "expectation": {
-      "credentials": "SSCSCaseWorker",
-      "status": 200,
-      "numberOfTasksAvailable": 1,
-      "taskData": {
-        "template": "minimal-task-response.json",
-        "replacements": {
-          "tasks": [
+    "ccd": [
+      {
+        "eventId": "caseworker-create-case",
+        "caseData": {
+          "template": "st_cic_minimal_case_data.json",
+          "replacements": {
+          }
+        }
+      }
+    ]
+  },
+  "updateCase": {
+    "credentials": {
+      "key": "caseworker"
+    },
+    "ccd": [
+      {
+        "eventId": "caseworker-case-built",
+        "caseData": {
+          "template": "st_cic_minimal_case_data.json"
+        }
+      }
+    ]
+  },
+  "tests": [
+    {
+      "request": {
+        "credentials": {
+          "key": "caseworker"
+        },
+        "input": {
+          "eventMessages": [
             {
-              "id": "{$VERIFIER-UUID}",
-              "case_name": "Functional PostDeployment",
-              "case_id": "{$GENERATED_CASE_ID}",
-              "case_category": "Protection",
-              "name": "Review non-compliant appeal",
-              "type": "nonCompliantCase",
-              "task_state": "unassigned",
-              "task_system": "SELF",
-              "security_classification": "PUBLIC",
-              "task_title": "Review non-compliant appeal",
-              "created_date": "{$VERIFIER-ZONED_DATETIME_TODAY}",
-              "due_date": "{$VERIFIER-ZONED_DATETIME_TODAY+2_WORKING_DAYS}",
-              "execution_type": "Case Management Task",
-              "jurisdiction": "SSCS",
-              "case_type_id": "Benefit",
-              "region": "1",
-              "location": "765324",
-              "location_name": "Taylor House",
-              "auto_assigned": false,
-              "warnings": false,
-              "role_category": "LEGAL_OPERATIONS",
-              "warning_list": {
-                "values": [
-
-                ]
-              },
-              "case_management_category": "Protection",
-              "work_type_id": "decision_making_work",
-              "permissions": {
-                "values": [
-                  "Read",
-                  "Refer",
-                  "Own",
-                  "Manage",
-                  "Execute",
-                  "Cancel"
-                ]
+              "destination": "RestEndpoint",
+              "template": "st_cic_minimal-ccd-event-message.json",
+              "replacements": {
+                "EventId": "create-draft-order",
+                "NewStateId": "caseManagement",
+                "AdditionalData": {
+                  "Data": {
+                    "referToJudgeReferralReason": "Withdrawal Request"
+                  }
+                }
               }
             }
           ]
         }
       },
-      "roleData": {
-        "roles": [
-          {
-            "role_category": "LEGAL_OPERATIONS",
-            "role_name": "case-manager",
-            "permissions": [
-              "Read",
-              "Refer",
-              "Own"
-            ],
-            "authorisations": [
-            ]
+      "expectations": [
+        {
+          "credentials": {
+            "key": "caseworker"
           },
-          {
-            "role_category": "JUDICIAL",
-            "role_name": "judge",
-            "permissions": [
-              "Read",
-              "Refer",
-              "Execute"
-            ],
-            "authorisations": [
-              "SSCS"
-            ]
+          "status": 200,
+          "numberOfTasksAvailable": 1,
+          "taskData": {
+            "template": "st_cic_minimal_task-response.json",
+            "replacements": {
+              "tasks": [
+                {
+                  "type": "processCaseWithdrawalDirections",
+                  "name": "Process Case Withdrawal Directions",
+                  "role_category": "ADMIN"
+                }
+              ]
+            }
           },
-          {
-            "role_category": "LEGAL_OPERATIONS",
-            "role_name": "senior-tribunal-caseworker",
-            "permissions": [
-              "Read",
-              "Refer",
-              "Own"
-            ],
-            "authorisations": [
-            ]
-          },
-          {
-            "role_name": "task-supervisor",
-            "permissions": [
-              "Read",
-              "Refer",
-              "Manage",
-              "Cancel"
-            ],
-            "authorisations": [
-            ]
-          },
-          {
-            "role_category": "LEGAL_OPERATIONS",
-            "role_name": "tribunal-caseworker",
-            "permissions": [
-              "Read",
-              "Refer",
-              "Own"
-            ],
-            "authorisations": [
+          "roleData": {
+            "roles": [
+              {
+                "role_category": "",
+                "role_name": "Regional-Centre-Admin",
+                "permissions": [ "Read,Own,Claim,Unclaim,Manage,UnclaimAssign" ],
+                "authorisations": []
+              },
+              {
+                "role_category": "",
+                "role_name": "Regional-Centre-Team-Leader",
+                "permissions": [ "Read,Own,Claim,Unclaim,Manage,UnclaimAssign,Assign,Unassign,Cancel" ],
+                "authorisations": []
+              }
             ]
           }
-        ]
-      }
+        }
+      ]
     }
-  }
+  ]
 }
