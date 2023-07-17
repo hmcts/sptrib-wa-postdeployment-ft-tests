@@ -47,10 +47,10 @@
               "template": "st_cic_minimal-ccd-event-message.json",
               "replacements": {
                 "EventId": "create-draft-order",
-                "NewStateId": "caseManagement",
+                "NewStateId": "CaseManagement",
                 "AdditionalData": {
                   "Data": {
-                    "referToJudgeReferralReason": "Withdrawal Request"
+                    "cicCaseReferralTypeForWA": "Withdrawal request"
                   }
                 }
               }

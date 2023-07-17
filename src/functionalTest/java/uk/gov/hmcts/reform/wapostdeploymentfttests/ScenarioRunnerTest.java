@@ -138,9 +138,7 @@ public class ScenarioRunnerTest extends SpringBootFunctionalBaseTest {
         Exception testException = null;
         try {
             for (File directory : directories) {
-                log.info("==== runAllScenariosFor( {} ) ", directory.getName());
                 runAllScenariosFor(directory.getName());
-                log.info("=============== finish all scenario ======== ");
             }
         } catch (Exception ex) {
             testException = ex;
@@ -208,9 +206,6 @@ public class ScenarioRunnerTest extends SpringBootFunctionalBaseTest {
                 );
                 createBaseCcdCase(scenario);
                 addSearchParameters(scenario, scenarioValues);
-
-                log.info("===============   ready ===");
-
                 if (scenario.getBeforeClauseValues() != null) {
                     Logger.say(SCENARIO_BEFORE_FOUND);
                     //If before was found process with before values
@@ -270,7 +265,6 @@ public class ScenarioRunnerTest extends SpringBootFunctionalBaseTest {
 
         Map<String, Object> scenarioValues = scenario.getScenarioMapValues();
         CredentialRequest credentialRequest = extractCredentialRequest(scenarioValues, "required.credentials");
-        log.info("===============  {} " , credentialRequest);
         Headers requestAuthorizationHeaders = authorizationHeadersProvider.getWaUserAuthorization(credentialRequest);
 
         List<Map<String, Object>> ccdCaseToCreate = new ArrayList<>(Objects.requireNonNull(

@@ -152,7 +152,6 @@ public class TaskMgmApiRetrieverService implements TaskRetrieverService {
                     tasks.forEach(task -> {
                         try {
                             String taskId = MapValueExtractor.extract(task, "id");
-                            log.info("task id is {}", taskId);
 
                             List<Map<String, Object>> taskDataList = MapValueExtractor.extract(
                                 scenarioMap,

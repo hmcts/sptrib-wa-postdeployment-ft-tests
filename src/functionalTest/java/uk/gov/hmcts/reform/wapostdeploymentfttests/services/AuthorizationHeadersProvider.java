@@ -141,7 +141,6 @@ public class AuthorizationHeadersProvider  implements AuthorizationHeaders {
             SERVICE_AUTHORIZATION,
             user -> serviceAuthTokenGenerator.generate()
         );
-        log.info("================ Service authorization {} and token , {}",SERVICE_AUTHORIZATION,serviceToken);
         return new Header(SERVICE_AUTHORIZATION, serviceToken);
     }
 
@@ -152,15 +151,10 @@ public class AuthorizationHeadersProvider  implements AuthorizationHeaders {
     private Header getUserAuthorizationHeader(String key, String username, String password) {
 
         MultiValueMap<String, String> body = createIdamRequest(username, password);
-        log.info("=============== body:  {} " , body);
-        log.info("=============== key:  {} " , key);
-        log.info("=============== tokens:  {} " , tokens);
         String accessToken = tokens.computeIfAbsent(
             key,
             user -> "Bearer " + idamWebApi.token(body).getAccessToken()
         );
-        log.info("=============== authorization : {}", AUTHORIZATION);
-        log.info("=============== access token : {} " , accessToken);
         return new Header(AUTHORIZATION, accessToken);
     }
 
@@ -233,7 +227,6 @@ public class AuthorizationHeadersProvider  implements AuthorizationHeaders {
         body.put("surname", "Functional");
         body.put("roles", requiredRoles);
         body.put("userGroup", userGroup);
-        log.info("======== this is body of request : {}",body.toString());
         return body;
     }
 
