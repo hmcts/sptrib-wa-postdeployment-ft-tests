@@ -1,0 +1,102 @@
+{
+  "description": "WA Admin Task - Process Written Reasons",
+  "enabled": true,
+  "jurisdiction": "st_cic",
+  "caseType": "CriminalInjuriesCompensation",
+  "options": {
+    "taskRetrievalApi": "task-management-api"
+  },
+  "required": {
+    "credentials": {
+      "key": "caseworker"
+    },
+    "ccd": [
+      {
+        "eventId": "caseworker-create-case",
+        "caseData": {
+          "template": "st_cic_minimal_case_data.json",
+          "replacements": {
+          }
+        }
+      }
+    ]
+  },
+  "updateCase": {
+    "credentials": {
+      "key": "caseworker"
+    },
+    "ccd": [
+      {
+        "eventId": "caseworker-case-built",
+        "caseData": {
+          "template": "st_cic_minimal_case_data.json"
+        }
+      }
+    ]
+  },
+  "tests": [
+    {
+      "request": {
+        "credentials": {
+          "key": "caseworker"
+        },
+        "input": {
+          "eventMessages": [
+            {
+              "destination": "RestEndpoint",
+              "template": "st_cic_minimal-ccd-event-message.json",
+              "replacements": {
+                "EventId": "create-draft-order",
+                "NewStateId": "CaseClosed",
+                "AdditionalData": {
+                  "Data": {
+                    "cicCaseReferralTypeForWA": "Written reasons request"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "expectations": [
+        {
+          "credentials": {
+            "key": "caseworker"
+          },
+          "status": 200,
+          "numberOfTasksAvailable": 1,
+          "taskData": {
+            "template": "st_cic_minimal_task-response.json",
+            "replacements": {
+              "tasks": [
+                {
+                  "type": "processWrittenReasons",
+                  "name": "Process Written Reasons",
+                  "role_category": "ADMIN",
+                  "minor_priority": 500,
+                  "major_priority": 5000
+                }
+              ]
+            }
+          },
+          "roleData": {
+            "roles": [
+              {
+                "role_category": "ADMIN",
+                "role_name": "Regional-Centre-Admin",
+                "permissions": [ "Read,Own,Claim,Unclaim,Manage,UnclaimAssign" ],
+                "authorisations": []
+              },
+              {
+                "role_category": "ADMIN",
+                "role_name": "Regional-Centre-Team-Leader",
+                "permissions": [ "Read,Own,Claim,Unclaim,Manage,UnclaimAssign,Assign,Unassign,Cancel" ],
+                "authorisations": []
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
