@@ -1,5 +1,5 @@
 {
-  "description": "WA - Legal Officer Task 'Review Strike out request",
+  "description": "WA - Legal Officer Task - Review listing directions - Legal Officer",
   "enabled": true,
   "jurisdiction": "st_cic",
   "caseType": "CriminalInjuriesCompensation",
@@ -50,7 +50,7 @@
                 "NewStateId": "CaseManagement",
                 "AdditionalData": {
                   "Data": {
-                    "cicCaseReferralTypeForWA": "Strike out Request"
+                    "cicCaseReferralTypeForWA": "Listing Directions"
                   }
                 }
               }
@@ -70,8 +70,8 @@
             "replacements": {
               "tasks": [
                 {
-                  "type": "reviewStrikeOutRequestLO",
-                  "name": "Review Strike out request - Legal Officer",
+                  "type": "reviewListingDirectionsLO",
+                  "name": "Review listing directions - Legal Officer",
                   "role_category": "LEGAL_OPERATIONS",
                   "minor_priority": 500,
                   "major_priority": 5000
