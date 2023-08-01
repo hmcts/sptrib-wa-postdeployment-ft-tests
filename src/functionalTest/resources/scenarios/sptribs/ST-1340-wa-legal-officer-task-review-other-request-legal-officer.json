@@ -70,6 +70,13 @@
             "replacements": {
               "tasks": [
                 {
+                  "test_meta_data":
+                    [
+                      {
+                        "key": "role_data_reference",
+                        "value": "reviewListCaseLO"
+                      }
+                    ],
                   "type": "reviewListCaseLO",
                   "name": "Review List Case - Legal Officer",
                   "role_category": "LEGAL_OPERATIONS",
