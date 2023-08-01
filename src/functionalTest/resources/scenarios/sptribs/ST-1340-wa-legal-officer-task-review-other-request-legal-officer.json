@@ -90,7 +90,7 @@
           "roleData": [
             {
               "key": "reviewListCaseLO",
-              "numberOfRolesAvailable": 5,
+              "numberOfRolesAvailable": 2,
               "roles": [
                 {
                   "role_category": "LEGAL_OPERATIONS",
