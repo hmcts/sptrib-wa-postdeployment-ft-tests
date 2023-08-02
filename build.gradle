@@ -199,7 +199,7 @@ repositories {
 def versions = [
         junit           : '5.9.2',
         junitPlatform   : '1.9.2',
-        reformLogging   : '5.1.9',
+        reformLogging   : '6.0.1',
         serenity        : '3.1.20',
         tomcat          : '9.0.65'
 ]
