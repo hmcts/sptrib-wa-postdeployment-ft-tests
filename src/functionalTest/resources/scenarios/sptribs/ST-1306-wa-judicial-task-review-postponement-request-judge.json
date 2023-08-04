@@ -1,5 +1,5 @@
 {
-  "description": "WA - Judicial Task - Review list case (within 5 days) - Judge",
+  "description": "WA - Judicial Task - Review Postponement request - Judge",
   "enabled": true,
   "jurisdiction": "st_cic",
   "caseType": "CriminalInjuriesCompensation",
@@ -50,7 +50,7 @@
                 "NewStateId": "AwaitingHearing",
                 "AdditionalData": {
                   "Data": {
-                    "cicCaseReferralTypeForWA": "Listed case (within 5 days)"
+                    "cicCaseReferralTypeForWA": "Postponement request"
                   }
                 }
               }
@@ -74,11 +74,11 @@
                   [
                     {
                       "key": "role_data_reference",
-                      "value": "reviewListCaseWithin5DaysJudge"
+                      "value": "reviewPostponementRequestJudge"
                     }
                   ],
-                  "type": "reviewListCaseWithin5DaysJudge",
-                  "name": "Review list case (within 5 days) - Judge",
+                  "type": "reviewPostponementRequestJudge",
+                  "name": "Review Postponement request - Judge",
                   "role_category": "JUDICIAL",
                   "description": "[Orders: Create draft](/cases/case-details/${[CASE_REFERENCE]}/trigger/create-draft-order/create-draft-ordercreateDraftOrder",
                   "minor_priority": 500,
@@ -89,15 +89,9 @@
           },
           "roleData": [
             {
-              "key": "reviewListCaseWithin5DaysJudge",
-              "numberOfRolesAvailable": 3,
+              "key": "reviewPostponementRequestJudge",
+              "numberOfRolesAvailable": 2,
               "roles": [
-                {
-                  "role_category": "JUDICIAL",
-                  "role_name": "fee-paid-judge",
-                  "permissions": [ "Read", "Execute", "Own", "Claim", "Manage", "Complete" ],
-                  "authorisations": []
-                },
                 {
                   "role_category": "JUDICIAL",
                   "role_name": "judge",
