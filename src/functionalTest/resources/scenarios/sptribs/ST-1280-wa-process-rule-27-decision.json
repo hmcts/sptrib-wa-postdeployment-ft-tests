@@ -1,5 +1,5 @@
 {
-  "description": "WA Admin Task - Process strike out directions returned",
+  "description": "WA Admin Task - Process Rule 27 decision",
   "enabled": true,
   "jurisdiction": "st_cic",
   "caseType": "CriminalInjuriesCompensation",
@@ -50,7 +50,7 @@
                 "NewStateId": "CaseManagement",
                 "AdditionalData": {
                   "Data": {
-                    "cicCaseReferralTypeForWA": "Strike out Request"
+                    "cicCaseReferralTypeForWA": "Rule 27 request"
                   }
                 }
               }
@@ -70,31 +70,43 @@
             "replacements": {
               "tasks": [
                 {
-                  "type": "processStrikeOutDirectionsReturned",
-                  "name": "Process strike out directions returned",
+                  "test_meta_data":
+                  [
+                    {
+                      "key": "role_data_reference",
+                      "value": "processRule27Decision"
+                    }
+                  ],
+                  "type": "processRule27Decision",
+                  "name": "Process Rule 27 decision",
                   "role_category": "ADMIN",
+                  "description":"[Orders: Send order](/cases/case-details/${[CASE_REFERENCE]}/trigger/caseworker-send-order/caseworker-send-ordercaseworkerSendOrderSelectOrderIssuingType",
                   "minor_priority": 500,
                   "major_priority": 5000
                 }
               ]
             }
           },
-          "roleData": {
-            "roles": [
-              {
-                "role_category": "ADMIN",
-                "role_name": "regional-centre-admin",
-                "permissions": [ "Read,Own,Claim,Unclaim,Manage,UnclaimAssign" ],
-                "authorisations": []
-              },
-              {
-                "role_category": "ADMIN",
-                "role_name": "regional-centre-team-leader",
-                "permissions": [ "Read,Own,Claim,Unclaim,Manage,UnclaimAssign,Assign,Unassign,Cancel" ],
-                "authorisations": []
-              }
-            ]
-          }
+          "roleData": [
+            {
+              "key": "processRule27Decision",
+              "numberOfRolesAvailable": 2,
+              "roles": [
+                {
+                  "role_category": "ADMIN",
+                  "role_name": "regional-centre-admin",
+                  "permissions": [ "Read", "Own", "Claim", "Unclaim", "Manage", "UnclaimAssign" ],
+                  "authorisations": []
+                },
+                {
+                  "role_category": "ADMIN",
+                  "role_name": "regional-centre-team-leader",
+                  "permissions": [ "Read", "Own", "Claim", "Unclaim", "Manage", "UnclaimAssign", "Assign", "Unassign", "Cancel" ],
+                  "authorisations": []
+                }
+              ]
+            }
+          ]
         }
       ]
     }

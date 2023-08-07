@@ -65,31 +65,43 @@
             "replacements": {
               "tasks": [
                 {
+                  "test_meta_data":
+                  [
+                    {
+                      "key": "role_data_reference",
+                      "value": "vetNewCaseDocuments"
+                    }
+                  ],
                   "type": "vetNewCaseDocuments",
                   "name": "Vet New Case Documents",
                   "role_category": "ADMIN",
+                  "description": "[Edit case details](/cases/case-details/${[CASE_REFERENCE]}/trigger/edit-case/edit-casecaseCategorisationDetails<br/>[Case: Build case](/cases/case-details/${[CASE_REFERENCE]}/trigger/caseworker-case-built/caseworker-case-builtcaseBuilt",
                   "minor_priority": 500,
                   "major_priority": 5000
                 }
               ]
             }
           },
-          "roleData": {
-            "roles": [
-              {
-                "role_category": "ADMIN",
-                "role_name": "regional-centre-admin",
-                "permissions": [ "Read,Own,Claim,Unclaim,Manage,UnclaimAssign" ],
-                "authorisations": []
-              },
-              {
-                "role_category": "ADMIN",
-                "role_name": "regional-centre-team-leader",
-                "permissions": [ "Read,Own,Claim,Unclaim,Manage,UnclaimAssign,Assign,Unassign,Cancel" ],
-                "authorisations": []
-              }
-            ]
-          }
+          "roleData": [
+            {
+              "key": "vetNewCaseDocuments",
+              "numberOfRolesAvailable": 2,
+              "roles": [
+                {
+                  "role_category": "ADMIN",
+                  "role_name": "regional-centre-admin",
+                  "permissions": [ "Read", "Own", "Claim", "Unclaim", "Manage", "UnclaimAssign" ],
+                  "authorisations": []
+                },
+                {
+                  "role_category": "ADMIN",
+                  "role_name": "regional-centre-team-leader",
+                  "permissions": [ "Read", "Own", "Claim", "Unclaim", "Manage", "UnclaimAssign", "Assign", "Unassign", "Cancel" ],
+                  "authorisations": []
+                }
+              ]
+            }
+          ]
         }
       ]
     }
