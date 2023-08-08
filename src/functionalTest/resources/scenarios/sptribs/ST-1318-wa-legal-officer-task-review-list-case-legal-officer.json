@@ -70,31 +70,43 @@
             "replacements": {
               "tasks": [
                 {
+                  "test_meta_data":
+                  [
+                    {
+                      "key": "role_data_reference",
+                      "value": "reviewListCaseLO"
+                    }
+                  ],
                   "type": "reviewListCaseLO",
                   "name": "Review List Case - Legal Officer",
                   "role_category": "LEGAL_OPERATIONS",
+                  "description":"[Orders: Create draft](/cases/case-details/${[CASE_REFERENCE]}/trigger/create-draft-order/create-draft-ordercreateDraftOrder",
                   "minor_priority": 500,
                   "major_priority": 5000
                 }
               ]
             }
           },
-          "roleData": {
-            "roles": [
-              {
-                "role_category": "LEGAL_OPERATIONS",
-                "role_name": "senior-legal-caseworker",
-                "permissions": [ "Read,Own,Claim,Manage,Assign,Unassign,Complete,Cancel" ],
-                "authorisations": []
-              },
-              {
-                "role_category": "LEGAL_OPERATIONS",
-                "role_name": "tribunal-caseworker",
-                "permissions": [ "Read,Own,Claim,Manage,Assign,Unassign,Complete,Cancel" ],
-                "authorisations": []
-              }
-            ]
-          }
+          "roleData": [
+            {
+              "key": "reviewListCaseLO",
+              "numberOfRolesAvailable": 2,
+              "roles": [
+                {
+                  "role_category": "LEGAL_OPERATIONS",
+                  "role_name": "senior-legal-caseworker",
+                  "permissions": [ "Read", "Own", "Claim", "Manage", "Assign", "Unassign", "Complete", "Cancel" ],
+                  "authorisations": []
+                },
+                {
+                  "role_category": "LEGAL_OPERATIONS",
+                  "role_name": "tribunal-caseworker",
+                  "permissions": [ "Read", "Own", "Claim", "Manage", "Assign", "Unassign", "Complete", "Cancel" ],
+                  "authorisations": []
+                }
+              ]
+            }
+          ]
         }
       ]
     }
