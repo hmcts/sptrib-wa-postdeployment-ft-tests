@@ -50,7 +50,7 @@
                 "NewStateId": "CaseManagement",
                 "AdditionalData": {
                   "Data": {
-                    "cicCaseReferralTypeForWA": "New Case"
+                    "cicCaseReferralTypeForWA": "New case"
                   }
                 }
               }

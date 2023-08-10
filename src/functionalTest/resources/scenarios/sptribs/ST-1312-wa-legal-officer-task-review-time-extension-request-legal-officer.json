@@ -50,7 +50,7 @@
                 "NewStateId": "CaseManagement",
                 "AdditionalData": {
                   "Data": {
-                    "cicCaseReferralTypeForWA": "Time Extension request"
+                    "cicCaseReferralTypeForWA": "Time extension request"
                   }
                 }
               }
