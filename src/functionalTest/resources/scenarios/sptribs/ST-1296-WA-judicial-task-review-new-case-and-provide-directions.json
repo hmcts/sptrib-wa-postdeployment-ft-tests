@@ -1,5 +1,5 @@
 {
-  "description": "WA - Judicial Task - Review Written Reasons request",
+  "description": "WA - Judicial Task - Review new case and provide directions",
   "enabled": true,
   "jurisdiction": "st_cic",
   "caseType": "CriminalInjuriesCompensation",
@@ -47,10 +47,10 @@
               "template": "st_cic_minimal-ccd-event-message.json",
               "replacements": {
                 "EventId": "refer-to-judge",
-                "NewStateId": "CaseClosed",
+                "NewStateId": "CaseManagement",
                 "AdditionalData": {
                   "Data": {
-                    "cicCaseReferralTypeForWA": "Written reasons request"
+                    "cicCaseReferralTypeForWA": "New case"
                   }
                 }
               }
@@ -74,16 +74,15 @@
                   [
                     {
                       "key": "role_data_reference",
-                      "value": "reviewWrittenReasonsRequest"
+                      "value": "reviewNewCaseAndProvideDirectionsJudge"
                     }
                   ],
-                  "type": "reviewWrittenReasonsRequest",
-                  "name": "Review Written Reasons request",
+                  "type": "reviewNewCaseAndProvideDirectionsJudge",
+                  "name": "Review new case and provide directions - Judge",
                   "role_category": "JUDICIAL",
                   "description": "[Orders: Create draft](/cases/case-details/${[CASE_REFERENCE]}/trigger/create-draft-order/create-draft-ordercreateDraftOrder",
                   "minor_priority": 500,
-                  "major_priority": 5000,
-                  "priority_date": "{$VERIFIER-ZONED_DATETIME_TODAY+28_WORKING_DAYS}"
+                  "major_priority": 5000
                 }
               ]
             }
