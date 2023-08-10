@@ -50,7 +50,7 @@
                 "NewStateId": "CaseManagement",
                 "AdditionalData": {
                   "Data": {
-                    "cicCaseReferralTypeForWA": "Strike out Request"
+                    "cicCaseReferralTypeForWA": "Strike out request"
                   }
                 }
               }
