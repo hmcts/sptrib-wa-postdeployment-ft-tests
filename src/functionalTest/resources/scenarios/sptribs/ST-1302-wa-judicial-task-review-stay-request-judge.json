@@ -74,11 +74,11 @@
                   [
                     {
                       "key": "role_data_reference",
-                      "value": "reviewStayRequest"
+                      "value": "reviewStayRequestJudge"
                     }
                   ],
-                  "type": "reviewStayRequest",
-                  "name": "Review Stay request",
+                  "type": "reviewStayRequestJudge",
+                  "name": "Review stay request - Judge",
                   "role_category": "JUDICIAL",
                   "description": "[Orders: Create draft](/cases/case-details/${[CASE_REFERENCE]}/trigger/create-draft-order/create-draft-ordercreateDraftOrder",
                   "minor_priority": 500,
@@ -90,7 +90,7 @@
           },
           "roleData": [
             {
-              "key": "reviewStayRequest",
+              "key": "reviewStayRequestJudge",
               "numberOfRolesAvailable": 3,
               "roles": [
                 {
