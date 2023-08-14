@@ -1,0 +1,120 @@
+{
+  "description": "WA - Judicial Task - Review List Case - Judge",
+  "enabled": true,
+  "jurisdiction": "st_cic",
+  "caseType": "CriminalInjuriesCompensation",
+  "options": {
+    "taskRetrievalApi": "task-management-api"
+  },
+  "required": {
+    "credentials": {
+      "key": "caseworker"
+    },
+    "ccd": [
+      {
+        "eventId": "caseworker-create-case",
+        "caseData": {
+          "template": "st_cic_minimal_case_data.json",
+          "replacements": {
+          }
+        }
+      }
+    ]
+  },
+  "updateCase": {
+    "credentials": {
+      "key": "caseworker"
+    },
+    "ccd": [
+      {
+        "eventId": "caseworker-case-built",
+        "caseData": {
+          "template": "st_cic_minimal_case_data.json"
+        }
+      }
+    ]
+  },
+  "tests": [
+    {
+      "request": {
+        "credentials": {
+          "key": "caseworker"
+        },
+        "input": {
+          "eventMessages": [
+            {
+              "destination": "RestEndpoint",
+              "template": "st_cic_minimal-ccd-event-message.json",
+              "replacements": {
+                "EventId": "refer-to-judge",
+                "NewStateId": "AwaitingHearing",
+                "AdditionalData": {
+                  "Data": {
+                    "cicCaseReferralTypeForWA": "Listed case"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "expectations": [
+        {
+          "credentials": {
+            "key": "caseworker"
+          },
+          "status": 200,
+          "numberOfTasksAvailable": 1,
+          "taskData": {
+            "template": "st_cic_minimal_task-response.json",
+            "replacements": {
+              "tasks": [
+                {
+                  "test_meta_data":
+                  [
+                    {
+                      "key": "role_data_reference",
+                      "value": "reviewListCaseJudge"
+                    }
+                  ],
+                  "type": "reviewListCaseJudge",
+                  "name": "Review List Case - Judge",
+                  "role_category": "JUDICIAL",
+                  "description": "[Orders: Create draft](/cases/case-details/${[CASE_REFERENCE]}/trigger/create-draft-order/create-draft-ordercreateDraftOrder",
+                  "minor_priority": 500,
+                  "major_priority": 5000
+                }
+              ]
+            }
+          },
+          "roleData": [
+            {
+              "key": "reviewListCaseJudge",
+              "numberOfRolesAvailable": 3,
+              "roles": [
+                {
+                  "role_category": "JUDICIAL",
+                  "role_name": "fee-paid-judge",
+                  "permissions": [ "Read", "Execute", "Own", "Claim", "Manage", "Complete" ],
+                  "authorisations": []
+                },
+                {
+                  "role_category": "JUDICIAL",
+                  "role_name": "judge",
+                  "permissions": [ "Read", "Execute", "Own", "Claim", "Manage", "Assign", "Unassign", "Complete", "Cancel" ],
+                  "authorisations": []
+                },
+                {
+                  "role_category": "JUDICIAL",
+                  "role_name": "senior-judge",
+                  "permissions": [ "Read", "Execute", "Own", "Claim", "Manage", "Assign", "Unassign", "Complete", "Cancel" ],
+                  "authorisations": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
