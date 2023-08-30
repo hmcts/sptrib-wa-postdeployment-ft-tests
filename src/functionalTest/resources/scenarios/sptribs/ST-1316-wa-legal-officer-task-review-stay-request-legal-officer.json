@@ -101,7 +101,7 @@
                 {
                   "role_category": "LEGAL_OPERATIONS",
                   "role_name": "tribunal-caseworker",
-                  "permissions": [ "Read", "Own", "Claim", "Manage", "Assign", "Unassign", "Complete", "Cancel" ],
+                  "permissions": [ "Read", "Own", "Claim", "Assign", "Unassign", "Complete", "Cancel" ],
                   "authorisations": []
                 }
               ]

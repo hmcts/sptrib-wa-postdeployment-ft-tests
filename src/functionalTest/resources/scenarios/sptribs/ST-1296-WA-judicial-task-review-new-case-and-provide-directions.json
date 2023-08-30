@@ -99,9 +99,10 @@
                   "authorisations": []
                 },
                 {
+
                   "role_category": "JUDICIAL",
                   "role_name": "judge",
-                  "permissions": [ "Read", "Execute", "Own", "Claim", "Manage", "Assign", "Unassign", "Complete", "Cancel" ],
+                  "permissions": [ "Read", "Execute", "Own", "Claim", "Assign", "Unassign", "Complete", "Cancel" ],
                   "authorisations": []
                 },
                 {
