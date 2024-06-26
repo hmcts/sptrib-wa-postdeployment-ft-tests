@@ -1,11 +1,11 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: "wa-post-deployment-ft-tests"
+  name: "sptribs-wa-post-deployment-ft-tests"
   annotations:
     # This must match folder-name/job-name in Jenkins.
-    jenkins.io/job-full-name: cft:HMCTS_j_to_z/wa-post-deployment-ft-tests
-    github.com/project-slug: hmcts/wa-post-deployment-ft-tests
+    jenkins.io/job-full-name: cft:HMCTS_j_to_z/sptribs-wa-post-deployment-ft-tests
+    github.com/project-slug: hmcts/sptribs-wa-post-deployment-ft-tests
   tags:
     - java
   links:

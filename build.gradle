@@ -264,7 +264,7 @@ mainClassName = 'uk.gov.hmcts.reform.wapostdeploymentfttests.Application'
 
 bootJar {
     getArchiveFileName().set(provider {
-        'wa-post-deployment-ft-tests.jar'
+        'sptribs-wa-post-deployment-ft-tests.jar'
     })
 
     manifest {
