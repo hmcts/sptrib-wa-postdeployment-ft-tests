@@ -8,22 +8,23 @@ properties([
 @Library("Infrastructure")
 
 def type = "java"
-def product = "wa"
+def product = "sptribs"
 def component = "post-deployment-ft-tests"
 
 def secrets = [
-  'wa-${env}' : [
+  'sptribs-${env}' : [
     secret('idam-redirect-uri', 'IA_IDAM_REDIRECT_URI'),
 
-    secret('wa-idam-client-secret', 'WA_IDAM_CLIENT_SECRET'),
+    secret('idam-client-id', 'WA_IDAM_CLIENT_ID'),
+    secret('idam-secret', 'WA_IDAM_CLIENT_SECRET'),
 
     secret('ccd-shared-servicebus-connection-string', 'AZURE_SERVICE_BUS_CONNECTION_STRING'),
 
     secret('wa-system-username', 'WA_SYSTEM_USERNAME'),
     secret('wa-system-password', 'WA_SYSTEM_PASSWORD'),
-  ],
-  's2s-${env}': [
-    secret('microservicekey-wa-task-management-api', 'S2S_SECRET_TASK_MANAGEMENT_API'),
+    secret('s2s-case-api-secret', 'S2S_SECRET_TASK_MANAGEMENT_API'),
+    secret('caseworker-user', 'CASEWORKER'),
+    secret('caseworker-password', 'CASEWORKER_PASSWORD'),
   ]
 ]
 

@@ -84,27 +84,20 @@ task functional(type: Test) {
   environment 'AZURE_SERVICE_BUS_TOPIC_NAME','st-ccd-case-event'
 
 // used for application yaml.file
-  environment 'WA_IDAM_CLIENT_ID','sptribs-case-api'
-  environment 'WA_IDAM_CLIENT_SECRET', "thUphEveC2Ekuqedaneh4jEcRuba4t2t"
   environment 'WA_IDAM_URL','https://idam-web-public.aat.platform.hmcts.net'
   environment 'WA_IDAM_REDIRECT_URI', 'http://xui-webapp/oauth2/callback'
   environment 'S2S_URL','http://rpe-service-auth-provider-aat.service.core-compute-aat.internal'
-  environment 'S2S_SECRET_TASK_MANAGEMENT_API','6WI24X55Y6AW6UME'
   environment 'S2S_NAME_TASK_MANAGEMENT_API','sptribs_case_api'
   environment 'CAMUNDA_URL', 'http://camunda-local-bpm/engine-rest'
   environment 'ENABLE_TEST_USER_DELETION', 'false'
   environment 'ROLE_ASSIGNMENT_URL', 'http://role-assignment'
-  environment 'WA_SYSTEM_USERNAME','wa-system-user@hmcts.net'
-  environment 'WA_SYSTEM_PASSWORD','System01'
-//
-  environment 'CASEWORKER','st-superuser10@mailinator.com'
-  environment 'CASEWORKER_PASSWORD', 'Pa55w0rd11'
-    description = "Runs functional tests"
-    group = "Verification"
-    systemProperty "scenario", System.getProperty('scenario')
-    testClassesDirs = sourceSets.functionalTest.output.classesDirs
-    classpath = sourceSets.functionalTest.runtimeClasspath
-    testLogging.showStandardStreams = true
+
+  description = "Runs functional tests"
+  group = "Verification"
+  systemProperty "scenario", System.getProperty('scenario')
+  testClassesDirs = sourceSets.functionalTest.output.classesDirs
+  classpath = sourceSets.functionalTest.runtimeClasspath
+  testLogging.showStandardStreams = true
 }
 
 task integration(type: Test) {
