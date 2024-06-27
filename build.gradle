@@ -141,8 +141,8 @@ project.tasks['sonarqube'].dependsOn test, integration, jacocoTestReport
 
 sonarqube {
     properties {
-        property "sonar.projectName", "Reform :: sptribs-post-deployment-ft-tests"
-        property "sonar.projectKey", "uk.gov.hmcts.reform:sptribs-post-deployment-ft-tests"
+        property "sonar.projectName", "Reform :: sptribs-wa-post-deployment-ft-tests"
+        property "sonar.projectKey", "uk.gov.hmcts.reform:sptribs-wa-post-deployment-ft-tests"
         property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
     }
 }
