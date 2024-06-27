@@ -8,7 +8,7 @@ properties([
 @Library("Infrastructure")
 
 def type = "java"
-def product = "sptribs"
+def product = "wa"
 def component = "wa-post-deployment-ft-tests"
 
 def secrets = [
