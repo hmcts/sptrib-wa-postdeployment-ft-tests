@@ -29,6 +29,7 @@ public class AuthorizationHeadersProvider  implements AuthorizationHeaders {
 
     public static final String AUTHORIZATION = "Authorization";
     public static final String SERVICE_AUTHORIZATION = "ServiceAuthorization";
+    private static final String WA_USER_PASSWORD = "System01";
 
     private final Map<String, String> tokens = new ConcurrentHashMap<>();
     private final Map<String, UserInfo> userInfo = new ConcurrentHashMap<>();
@@ -144,7 +145,7 @@ public class AuthorizationHeadersProvider  implements AuthorizationHeaders {
     }
 
     private Header getUserAuthorizationHeader(String key, String username) {
-        return getUserAuthorizationHeader(key, username, System.getenv("WA_SYSTEM_PASSWORD"));
+        return getUserAuthorizationHeader(key, username, WA_USER_PASSWORD);
     }
 
     private Header getUserAuthorizationHeader(String key, String username, String password) {
@@ -220,7 +221,7 @@ public class AuthorizationHeadersProvider  implements AuthorizationHeaders {
 
         Map<String, Object> body = new ConcurrentHashMap<>();
         body.put("email", userEmail);
-        body.put("password", System.getenv("WA_SYSTEM_PASSWORD"));
+        body.put("password", WA_USER_PASSWORD);
         body.put("id","wa-caseworker");
         body.put("forename", "WAPDTAccount");
         body.put("surname", "Functional");
