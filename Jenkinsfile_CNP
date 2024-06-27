@@ -21,10 +21,8 @@ def secrets = [
     secret('idam-secret', 'WA_IDAM_CLIENT_SECRET'),
     secret('wa-system-username', 'WA_SYSTEM_USERNAME'),
     secret('wa-system-password', 'WA_SYSTEM_PASSWORD'),
+    secret('s2s-case-api-secret', 'S2S_SECRET_TASK_MANAGEMENT_API'),
   ],
-  's2s-${env}': [
-    secret('microservicekey-wa-task-management-api', 'S2S_SECRET_TASK_MANAGEMENT_API'),
-  ]
 ]
 
 static LinkedHashMap<String, Object> secret(String secretName, String envVar) {

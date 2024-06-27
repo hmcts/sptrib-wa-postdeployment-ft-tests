@@ -87,7 +87,6 @@ task functional(type: Test) {
   environment 'WA_IDAM_URL','https://idam-web-public.aat.platform.hmcts.net'
   environment 'WA_IDAM_REDIRECT_URI', 'http://xui-webapp/oauth2/callback'
   environment 'S2S_URL','http://rpe-service-auth-provider-aat.service.core-compute-aat.internal'
-  environment 'S2S_SECRET_TASK_MANAGEMENT_API','6WI24X55Y6AW6UME'
   environment 'S2S_NAME_TASK_MANAGEMENT_API','sptribs_case_api'
   environment 'CAMUNDA_URL', 'http://camunda-local-bpm/engine-rest'
   environment 'ENABLE_TEST_USER_DELETION', 'false'
