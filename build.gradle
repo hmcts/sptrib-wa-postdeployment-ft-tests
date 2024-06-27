@@ -84,8 +84,6 @@ task functional(type: Test) {
   environment 'AZURE_SERVICE_BUS_TOPIC_NAME','st-ccd-case-event'
 
 // used for application yaml.file
-  environment 'WA_IDAM_CLIENT_ID','sptribs-case-api'
-  environment 'WA_IDAM_CLIENT_SECRET', "thUphEveC2Ekuqedaneh4jEcRuba4t2t"
   environment 'WA_IDAM_URL','https://idam-web-public.aat.platform.hmcts.net'
   environment 'WA_IDAM_REDIRECT_URI', 'http://xui-webapp/oauth2/callback'
   environment 'S2S_URL','http://rpe-service-auth-provider-aat.service.core-compute-aat.internal'

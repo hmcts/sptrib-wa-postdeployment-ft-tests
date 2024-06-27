@@ -21,6 +21,7 @@ def secrets = [
     secret('wa-system-password', 'WA_SYSTEM_PASSWORD'),
   ],
   'sptribs-${env}' : [
+    secret('idam-client-id', 'WA_IDAM_CLIENT_ID'),
     secret('idam-secret', 'WA_IDAM_CLIENT_SECRET'),
   ],
   's2s-${env}': [
