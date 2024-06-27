@@ -9,7 +9,7 @@ properties([
 
 def type = "java"
 def product = "wa"
-def component = "wa-post-deployment-ft-tests"
+def component = "post-deployment-ft-tests"
 
 
 def secrets = [
