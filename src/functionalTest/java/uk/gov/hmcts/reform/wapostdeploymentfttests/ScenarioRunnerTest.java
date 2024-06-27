@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.awaitility.core.ConditionEvaluationLogger;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.AbstractEnvironment;
@@ -117,43 +118,44 @@ public class ScenarioRunnerTest extends SpringBootFunctionalBaseTest {
         JsonUtil.setObjectMapper(objectMapper);
     }
 
-//    @Test
-//    public void scenarios_should_behave_as_specified() throws Exception {
-//
-//        StopWatch stopWatch = new StopWatch();
-//        stopWatch.start();
-//
-//        loadPropertiesIntoMapValueExpander();
-//
-//        for (Preparer preparer : preparers) {
-//            preparer.prepare();
-//        }
-//
-//        assertFalse("Verifiers configured successfully", verifiers.isEmpty());
-//
-//        URL path = getClass().getClassLoader().getResource("scenarios");
-//        File[] directories = new File(path.toURI()).listFiles(File::isDirectory);
-//        Objects.requireNonNull(directories, "No directories found under 'scenarios'");
-//
-//        Exception testException = null;
-//        try {
-//            for (File directory : directories) {
-//                runAllScenariosFor(directory.getName());
-//            }
-//        } catch (Exception ex) {
-//            testException = ex;
-//        } finally {
-//            Logger.say(CLEANUP_USERS_RUNNING);
-//            authorizationHeadersProvider.cleanupTestUsers();
-//            Logger.say(CLEANUP_USERS_FINISHED);
-//
-//            if (testException != null) {
-//                throw testException;
-//            }
-//        }
-//        stopWatch.stop();
-//        Logger.say(SCENARIO_RUNNING_TIME, stopWatch.getTotalTimeSeconds());
-//    }
+    @Test
+    @Disabled
+    public void scenarios_should_behave_as_specified() throws Exception {
+
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
+
+        loadPropertiesIntoMapValueExpander();
+
+        for (Preparer preparer : preparers) {
+            preparer.prepare();
+        }
+
+        assertFalse("Verifiers configured successfully", verifiers.isEmpty());
+
+        URL path = getClass().getClassLoader().getResource("scenarios");
+        File[] directories = new File(path.toURI()).listFiles(File::isDirectory);
+        Objects.requireNonNull(directories, "No directories found under 'scenarios'");
+
+        Exception testException = null;
+        try {
+            for (File directory : directories) {
+                runAllScenariosFor(directory.getName());
+            }
+        } catch (Exception ex) {
+            testException = ex;
+        } finally {
+            Logger.say(CLEANUP_USERS_RUNNING);
+            authorizationHeadersProvider.cleanupTestUsers();
+            Logger.say(CLEANUP_USERS_FINISHED);
+
+            if (testException != null) {
+                throw testException;
+            }
+        }
+        stopWatch.stop();
+        Logger.say(SCENARIO_RUNNING_TIME, stopWatch.getTotalTimeSeconds());
+    }
 
     private void runAllScenariosFor(String directoryName) throws Exception {
         String scenarioPattern = System.getProperty("scenario");
