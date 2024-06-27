@@ -13,8 +13,6 @@ def component = "post-deployment-ft-tests"
 
 def secrets = [
   'sptribs-${env}' : [
-    secret('idam-redirect-uri', 'IA_IDAM_REDIRECT_URI'),
-
     secret('idam-client-id', 'WA_IDAM_CLIENT_ID'),
     secret('idam-secret', 'WA_IDAM_CLIENT_SECRET'),
 
@@ -26,6 +24,9 @@ def secrets = [
     secret('caseworker-user', 'CASEWORKER'),
     secret('caseworker-password', 'CASEWORKER_PASSWORD'),
   ],
+  'wa-${env}' : [
+    secret('idam-redirect-uri', 'IA_IDAM_REDIRECT_URI'),
+  ]
 ]
 
 static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
