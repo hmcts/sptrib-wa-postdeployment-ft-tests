@@ -92,9 +92,6 @@ task functional(type: Test) {
   environment 'CAMUNDA_URL', 'http://camunda-local-bpm/engine-rest'
   environment 'ENABLE_TEST_USER_DELETION', 'false'
   environment 'ROLE_ASSIGNMENT_URL', 'http://role-assignment'
-  environment 'WA_SYSTEM_USERNAME','wa-system-user@hmcts.net'
-  environment 'WA_SYSTEM_PASSWORD','System01'
-//
   environment 'CASEWORKER','st-superuser10@mailinator.com'
   environment 'CASEWORKER_PASSWORD', 'Pa55w0rd11'
     description = "Runs functional tests"
