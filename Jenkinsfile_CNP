@@ -25,7 +25,7 @@ def secrets = [
     secret('s2s-case-api-secret', 'S2S_SECRET_TASK_MANAGEMENT_API'),
     secret('caseworker-user', 'CASEWORKER'),
     secret('caseworker-password', 'CASEWORKER_PASSWORD'),
-  ]
+  ],
 ]
 
 static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
