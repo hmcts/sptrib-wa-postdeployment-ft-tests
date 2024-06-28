@@ -120,7 +120,7 @@ public class ScenarioRunnerTest extends SpringBootFunctionalBaseTest {
 
     @Test
     @Ignore
-    public void scenarios_should_behave_as_specified() throws Exception {
+    public void scenariosShouldBehaveAsSpecified() throws Exception {
 
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
