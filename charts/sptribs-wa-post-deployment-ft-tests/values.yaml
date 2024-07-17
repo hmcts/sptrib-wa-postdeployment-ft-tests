@@ -1,0 +1,15 @@
+java:
+  applicationPort: 8888
+  image: 'hmctspublic.azurecr.io/wa/post-deployment-functional-tests:latest'
+  ingressHost: sptribs-wa-post-deployment-ft-tests-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
+  aadIdentityName: wa
+
+wa:
+  enabled: true
+  wa-case-event-handler:
+    java:
+      secrets:
+        AZURE_SERVICE_BUS_CONNECTION_STRING:
+          secretRef: sptribs-sb-preview
+          key: connectionString
+

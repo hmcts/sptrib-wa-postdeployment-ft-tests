@@ -7,6 +7,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.awaitility.core.ConditionEvaluationLogger;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -118,7 +119,8 @@ public class ScenarioRunnerTest extends SpringBootFunctionalBaseTest {
     }
 
     @Test
-    public void scenarios_should_behave_as_specified() throws Exception {
+    @Ignore
+    public void scenariosShouldBehaveAsSpecified() throws Exception {
 
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();

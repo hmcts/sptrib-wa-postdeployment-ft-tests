@@ -8,23 +8,19 @@ properties([
 @Library("Infrastructure")
 
 def type = "java"
-def product = "wa"
+def product = "sptribs"
 def component = "post-deployment-ft-tests"
 
 def secrets = [
-  'wa-${env}' : [
-    secret('idam-redirect-uri', 'IA_IDAM_REDIRECT_URI'),
-
-    secret('wa-idam-client-secret', 'WA_IDAM_CLIENT_SECRET'),
-
-    secret('ccd-shared-servicebus-connection-string', 'AZURE_SERVICE_BUS_CONNECTION_STRING'),
-
+  'sptribs-${env}' : [
+    secret('idam-client-id', 'WA_IDAM_CLIENT_ID'),
+    secret('idam-secret', 'WA_IDAM_CLIENT_SECRET'),
     secret('wa-system-username', 'WA_SYSTEM_USERNAME'),
     secret('wa-system-password', 'WA_SYSTEM_PASSWORD'),
+    secret('s2s-case-api-secret', 'S2S_SECRET_TASK_MANAGEMENT_API'),
+    secret('caseworker-user', 'CASEWORKER'),
+    secret('caseworker-password', 'CASEWORKER_PASSWORD'),
   ],
-  's2s-${env}': [
-    secret('microservicekey-wa-task-management-api', 'S2S_SECRET_TASK_MANAGEMENT_API'),
-  ]
 ]
 
 static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
@@ -38,8 +34,6 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 
 //Run Jenkins_CNP with nightly pipeline
 withNightlyPipeline(type, product, component) {
-  env.AZURE_SERVICE_BUS_TOPIC_NAME = "ccd-case-events-aat"
-
   env.CCD_URL = "http://ccd-data-store-api-aat.service.core-compute-aat.internal"
   env.DM_STORE_URL = "http://dm-store-aat.service.core-compute-aat.internal"
   env.IDAM_URL = "https://idam-api.aat.platform.hmcts.net"
